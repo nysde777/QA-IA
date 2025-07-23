@@ -1,0 +1,238 @@
+# REPORTE DE ERROR - DEFECTO #001
+## Bug Report - SauceDemo Login Validation
+
+---
+
+## 📋 INFORMACIÓN GENERAL DEL DEFECTO
+
+**ID del Defecto:** DEF-001
+**Título:** Sistema permite login con campos vacíos sin validación
+**Aplicación:** SauceDemo
+**URL:** https://www.saucedemo.com/
+**Fecha de Detección:** 16 de Julio, 2025
+**Reportado por:** Equipo de QA
+**Asignado a:** Equipo de Desarrollo
+**Versión:** 1.0
+
+---
+
+## 🎯 CLASIFICACIÓN DEL DEFECTO
+
+**Severidad:** 🔴 **ALTA**
+**Prioridad:** 🔴 **ALTA**
+**Tipo:** Defecto de Validación
+**Categoría:** Seguridad / Validación de Entrada
+**Módulo:** Autenticación / Login
+**Navegador:** Chrome, Firefox, Safari, Edge
+**Sistema Operativo:** Windows, macOS, Linux
+
+---
+
+## 📝 DESCRIPCIÓN DEL DEFECTO
+
+### Resumen:
+El sistema permite iniciar sesión con campos de usuario y contraseña vacíos, cuando debería mostrar un mensaje de error y prevenir el acceso.
+
+### Descripción Detallada:
+Al intentar hacer login dejando tanto el campo "Username" como "Password" vacíos, el sistema no muestra ningún mensaje de validación y permite proceder, lo cual representa una falla en la validación de campos obligatorios y puede comprometer la seguridad del sistema.
+
+---
+
+## 🔍 PASOS PARA REPRODUCIR
+
+### Precondiciones:
+- Navegador web abierto
+- Acceso a https://www.saucedemo.com/
+- Conexión a internet estable
+
+### Pasos de Reproducción:
+1. Navegar a https://www.saucedemo.com/
+2. Verificar que la página de login esté completamente cargada
+3. Dejar el campo "Username" completamente vacío
+4. Dejar el campo "Password" completamente vacío
+5. Hacer clic en el botón "Login"
+6. Observar el comportamiento del sistema
+
+### Datos de Prueba:
+- **Username:** (vacío)
+- **Password:** (vacío)
+- **Acción:** Clic en botón "Login"
+
+---
+
+## 🎯 RESULTADO ACTUAL vs ESPERADO
+
+### Resultado Actual (Incorrecto):
+- ❌ El sistema permite proceder sin validación
+- ❌ No se muestra mensaje de error
+- ❌ Los campos vacíos son aceptados
+- ❌ Posible redirección o comportamiento inesperado
+
+### Resultado Esperado (Correcto):
+- ✅ El sistema debe mostrar un mensaje de error claro
+- ✅ Debe indicar que ambos campos son obligatorios
+- ✅ Debe prevenir el acceso hasta que se completen los campos
+- ✅ Debe permanecer en la página de login
+- ✅ Mensaje esperado: "Epic sadface: Username is required" o similar
+
+---
+
+## 📊 IMPACTO Y RIESGO
+
+### Impacto en el Usuario:
+- **Confusión:** Los usuarios no entienden por qué no pueden acceder
+- **Experiencia degradada:** Falta de feedback claro sobre errores
+- **Frustración:** Intentos fallidos sin explicación clara
+
+### Riesgo de Seguridad:
+- **Medio-Alto:** Falta de validación básica de entrada
+- **Bypasseo potencial:** Posible elusión de controles de seguridad
+- **Inconsistencia:** Comportamiento no estándar en validación
+
+### Impacto en el Negocio:
+- **Usabilidad:** Afecta la experiencia del usuario
+- **Confianza:** Reduce la confianza en el sistema
+- **Mantenimiento:** Puede generar más reportes de usuarios confundidos
+
+---
+
+## 📷 EVIDENCIA
+
+### Screenshots:
+1. **Página inicial:** Campos vacíos antes de hacer clic en Login
+2. **Resultado actual:** Comportamiento después de hacer clic en Login
+3. **Resultado esperado:** Mockup de cómo debería verse el mensaje de error
+
+### Logs de Consola:
+```
+No se encontraron errores de JavaScript relevantes
+No se muestran mensajes de validación
+No se disparan eventos de validación
+```
+
+### Información de Red:
+- **Request Method:** POST (si procede)
+- **Status Code:** [Incluir código de respuesta]
+- **Response:** [Incluir respuesta del servidor]
+
+---
+
+## 💡 SOLUCIÓN PROPUESTA
+
+### Implementaciones Recomendadas:
+
+#### 1. Validación Client-Side:
+```javascript
+// Ejemplo de validación JavaScript
+function validateLogin() {
+    const username = document.getElementById('user-name').value;
+    const password = document.getElementById('password').value;
+    
+    if (!username.trim()) {
+        showError('Epic sadface: Username is required');
+        return false;
+    }
+    
+    if (!password.trim()) {
+        showError('Epic sadface: Password is required');
+        return false;
+    }
+    
+    return true;
+}
+```
+
+#### 2. Validación HTML5:
+```html
+<input type="text" id="user-name" name="user-name" required>
+<input type="password" id="password" name="password" required>
+```
+
+#### 3. Validación Server-Side:
+- Implementar validación en el backend
+- Retornar mensajes de error apropiados
+- Mantener consistencia con otros mensajes del sistema
+
+---
+
+## 📋 DEFECTOS RELACIONADOS
+
+### Defectos Similares:
+- **DEF-002:** [Si existe] Validación de campo Username vacío
+- **DEF-003:** [Si existe] Validación de campo Password vacío
+- **DEF-004:** [Si existe] Inconsistencia en mensajes de error
+
+### Defectos Dependientes:
+- Ninguno identificado actualmente
+
+---
+
+## 📊 MÉTRICAS DE SEGUIMIENTO
+
+### Tiempo Estimado para Corrección:
+- **Desarrollo:** 2-4 horas
+- **Testing:** 2-3 horas
+- **Regression Testing:** 1-2 horas
+- **Total:** 5-9 horas
+
+### Esfuerzo Estimado:
+- **Desarrollador Frontend:** 0.5 días
+- **QA Tester:** 0.3 días
+- **Total:** 0.8 días
+
+---
+
+## 📞 CONTACTO Y SEGUIMIENTO
+
+**Reportado por:**
+- **Nombre:** [Nombre del QA]
+- **Email:** [email@company.com]
+- **Equipo:** QA Team
+
+**Punto de Contacto para Preguntas:**
+- **QA Lead:** [Nombre]
+- **Email:** [email@company.com]
+- **Slack:** #qa-team
+
+**Seguimiento:**
+- **Revisión diaria:** Stand-up meetings
+- **Actualización:** Cada 2 días hasta resolución
+- **Verificación:** Después de cada fix
+
+---
+
+## 📅 HISTORIAL DE CAMBIOS
+
+| Fecha | Versión | Cambio | Responsable |
+|-------|---------|--------|-------------|
+| 2025-07-16 | 1.0 | Creación inicial del reporte | QA Team |
+| | | | |
+| | | | |
+
+---
+
+## ✅ CHECKLIST DE VERIFICACIÓN
+
+### Antes de Cerrar el Defecto:
+- [ ] Validación implementada para campos vacíos
+- [ ] Mensaje de error apropiado mostrado
+- [ ] Funciona en todos los navegadores soportados
+- [ ] Funciona en todos los dispositivos soportados
+- [ ] Pruebas de regresión ejecutadas
+- [ ] Documentación actualizada
+- [ ] Casos de prueba actualizados
+- [ ] Aprobación del QA Lead
+- [ ] Aprobación del Product Owner
+
+---
+
+**Estado:** 🔴 **ABIERTO**
+**Prioridad:** 🔴 **ALTA**
+**Fecha de Creación:** 16 de Julio, 2025
+**Última Actualización:** 16 de Julio, 2025
+
+---
+
+**Reporte preparado por:** Equipo de QA
+**Herramienta:** Sistema de Gestión de Defectos
+**Versión del Template:** 2.0

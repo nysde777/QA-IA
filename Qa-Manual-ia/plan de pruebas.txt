@@ -1,0 +1,307 @@
+# PLAN DE PRUEBAS - SAUCEDEMO
+## E-commerce Demo Testing Plan
+
+---
+
+## 📋 1. INFORMACIÓN GENERAL
+
+**Aplicación:** SauceDemo (https://www.saucedemo.com/)
+**Tipo:** Demo de tienda en línea para pruebas de automatización
+**Objetivo:** Validar funcionalidades de login, catálogo, carrito y checkout
+**Fecha:** Julio 2025
+**Responsable:** Equipo de QA
+
+---
+
+## 🎯 2. OBJETIVOS DE PRUEBA
+
+### Objetivos Principales:
+- Validar el flujo completo de compra (login → catálogo → carrito → checkout)
+- Verificar diferentes tipos de usuarios y sus comportamientos
+- Confirmar la funcionalidad de navegación y elementos de la interfaz
+- Asegurar compatibilidad en diferentes navegadores y dispositivos
+
+### Objetivos Específicos:
+- Probar autenticación con todos los usuarios disponibles
+- Validar gestión del carrito de compras
+- Verificar proceso de checkout completo
+- Confirmar funcionalidades de ordenamiento y filtrado
+
+---
+
+## 📊 3. ALCANCE DE PRUEBAS
+
+### ✅ Incluido en el Alcance:
+- **Módulo de Login:** Autenticación, validaciones, control de acceso
+- **Módulo de Catálogo:** Visualización de productos, ordenamiento
+- **Módulo de Carrito:** Agregar/remover productos, contador
+- **Módulo de Checkout:** Proceso completo de compra en 3 pasos
+- **Módulo de Navegación:** Menú lateral, logout, reset
+- **Usuarios Especiales:** problem_user, performance_glitch_user, locked_out_user
+- **Compatibilidad:** Desktop y mobile
+
+### ❌ Excluido del Alcance:
+- Procesamiento real de pagos (es una demo)
+- Funciones de seguridad avanzadas
+- Integración con sistemas externos
+- Funcionalidades dinámicas complejas
+
+---
+
+## 👥 4. USUARIOS Y CREDENCIALES DE PRUEBA
+
+| Usuario | Contraseña | Comportamiento Esperado |
+|---------|------------|-------------------------|
+| standard_user | secret_sauce | Usuario normal sin problemas |
+| locked_out_user | secret_sauce | Usuario bloqueado - no puede ingresar |
+| problem_user | secret_sauce | Usuario con problemas en la interfaz |
+| performance_glitch_user | secret_sauce | Usuario con retrasos de rendimiento |
+
+---
+
+## 🧪 5. ESTRATEGIA DE PRUEBAS
+
+### 5.1 Tipos de Pruebas:
+- **Pruebas Funcionales:** Validar que todas las funciones trabajen según especificaciones
+- **Pruebas de Interfaz:** Verificar elementos visuales y usabilidad
+- **Pruebas de Navegación:** Confirmar flujos de navegación correctos
+- **Pruebas de Compatibilidad:** Validar funcionamiento en diferentes navegadores
+- **Pruebas de Rendimiento:** Verificar comportamiento con performance_glitch_user
+
+### 5.2 Enfoques de Prueba:
+- **Pruebas Positivas:** Casos de uso exitosos
+- **Pruebas Negativas:** Casos de error y validaciones
+- **Pruebas de Flujo:** Procesos completos end-to-end
+- **Pruebas de Regresión:** Verificar que cambios no afecten funcionalidades existentes
+
+---
+
+## 📝 6. CASOS DE PRUEBA PRINCIPALES
+
+### 6.1 MÓDULO DE LOGIN
+```
+CP-001: Login exitoso con standard_user
+CP-002: Login con credenciales inválidas
+CP-003: Login con usuario bloqueado (locked_out_user)
+CP-004: Login con campos vacíos
+CP-005: Validación de mensajes de error
+CP-006: Redirección después del login exitoso
+```
+
+### 6.2 MÓDULO DE CATÁLOGO
+```
+CP-007: Visualización correcta de productos
+CP-008: Ordenamiento por nombre (A-Z)
+CP-009: Ordenamiento por nombre (Z-A)
+CP-010: Ordenamiento por precio (bajo a alto)
+CP-011: Ordenamiento por precio (alto a bajo)
+CP-012: Funcionalidad botón "Add to cart"
+```
+
+### 6.3 MÓDULO DE CARRITO
+```
+CP-013: Agregar productos al carrito
+CP-014: Remover productos del carrito
+CP-015: Contador de productos en carrito
+CP-016: Visualización del resumen del carrito
+CP-017: Navegación desde carrito a checkout
+CP-018: Carrito vacío - validaciones
+```
+
+### 6.4 MÓDULO DE CHECKOUT
+```
+CP-019: Completar información personal (Paso 1)
+CP-020: Validación de campos obligatorios
+CP-021: Revisión del pedido (Paso 2)
+CP-022: Confirmación de compra (Paso 3)
+CP-023: Navegación entre pasos del checkout
+CP-024: Cálculo correcto de precios y totales
+```
+
+### 6.5 MÓDULO DE NAVEGACIÓN
+```
+CP-025: Funcionalidad menú hamburguesa
+CP-026: Opción "All Items" - regreso al catálogo
+CP-027: Opción "About" - enlace externo
+CP-028: Opción "Reset App State" - limpieza del carrito
+CP-029: Logout - cierre de sesión
+CP-030: Navegación después del logout
+```
+
+### 6.6 USUARIOS ESPECIALES
+```
+CP-031: Comportamiento de problem_user
+CP-032: Rendimiento con performance_glitch_user
+CP-033: Validación específica de locked_out_user
+CP-034: Comparación de comportamientos entre usuarios
+```
+
+---
+
+## 🌐 7. ENTORNO DE PRUEBAS
+
+### 7.1 Navegadores Soportados:
+- Chrome (última versión)
+- Firefox (última versión)
+- Safari (última versión)
+- Edge (última versión)
+
+### 7.2 Dispositivos:
+- Desktop (Windows, macOS, Linux)
+- Mobile (iOS, Android)
+- Tablet (iPad, Android tablet)
+
+### 7.3 Resoluciones de Pantalla:
+- 1920x1080 (Full HD)
+- 1366x768 (HD)
+- 375x667 (Mobile)
+- 768x1024 (Tablet)
+
+---
+
+## 📊 8. CRITERIOS DE ACEPTACIÓN
+
+### 8.1 Criterios de Entrada:
+- Aplicación disponible en el entorno de pruebas
+- Todos los usuarios de prueba funcionando
+- Navegadores configurados y actualizados
+- Casos de prueba documentados y aprobados
+
+### 8.2 Criterios de Salida:
+- 100% de casos de prueba críticos ejecutados
+- 0 defectos críticos abiertos
+- Máximo 2 defectos menores abiertos
+- Documentación de resultados completa
+
+### 8.3 Criterios de Suspensión:
+- Aplicación no disponible por más de 2 horas
+- Defectos críticos que impiden continuar
+- Más del 50% de casos de prueba fallando
+
+---
+
+## 🐛 9. GESTIÓN DE DEFECTOS
+
+### 9.1 Clasificación de Severidad:
+- **Crítica:** Bloquea funcionalidad principal
+- **Alta:** Funcionalidad importante no funciona
+- **Media:** Funcionalidad menor afectada
+- **Baja:** Problemas cosméticos o sugerencias
+
+### 9.2 Clasificación de Prioridad:
+- **P1:** Resolver inmediatamente
+- **P2:** Resolver en el siguiente ciclo
+- **P3:** Resolver cuando sea posible
+- **P4:** Resolver en versiones futuras
+
+---
+
+## 📅 10. CRONOGRAMA DE PRUEBAS
+
+### Fase 1: Preparación (1 día)
+- Configuración del entorno
+- Revisión de casos de prueba
+- Preparación de datos de prueba
+
+### Fase 2: Ejecución de Pruebas Funcionales (3 días)
+- Módulo de Login (0.5 días)
+- Módulo de Catálogo (0.5 días)
+- Módulo de Carrito (1 día)
+- Módulo de Checkout (1 día)
+
+### Fase 3: Pruebas de Compatibilidad (2 días)
+- Pruebas en diferentes navegadores
+- Pruebas en dispositivos móviles
+- Pruebas de responsive design
+
+### Fase 4: Pruebas de Regresión (1 día)
+- Re-ejecución de casos críticos
+- Validación de fixes de defectos
+
+### Fase 5: Reportes y Cierre (1 día)
+- Documentación de resultados
+- Reporte final de pruebas
+- Cierre del ciclo de pruebas
+
+**TOTAL: 8 días**
+
+---
+
+## 📈 11. MÉTRICAS Y REPORTES
+
+### 11.1 Métricas de Cobertura:
+- % de casos de prueba ejecutados
+- % de requisitos cubiertos
+- % de funcionalidades probadas
+
+### 11.2 Métricas de Calidad:
+- Número de defectos por módulo
+- Densidad de defectos
+- Tasa de detección de defectos
+
+### 11.3 Métricas de Eficiencia:
+- Tiempo promedio por caso de prueba
+- Casos de prueba por día
+- Tasa de re-ejecución
+
+---
+
+## 🎯 12. RIESGOS Y MITIGACIONES
+
+### 12.1 Riesgos Identificados:
+- **Riesgo:** Aplicación no disponible
+  - **Mitigación:** Contacto directo con administradores
+- **Riesgo:** Cambios en usuarios de prueba
+  - **Mitigación:** Validación diaria de credenciales
+- **Riesgo:** Problemas de compatibilidad
+  - **Mitigación:** Pruebas tempranas en múltiples navegadores
+
+### 12.2 Contingencias:
+- Plan B para entornos alternativos
+- Casos de prueba prioritarios para tiempo limitado
+- Recursos adicionales en caso de defectos críticos
+
+---
+
+## 👨‍💻 13. EQUIPO DE PRUEBAS
+
+### 13.1 Roles y Responsabilidades:
+- **Test Manager:** Coordinación general y reportes
+- **Test Analyst:** Diseño y documentación de casos de prueba
+- **Test Executor:** Ejecución de casos de prueba
+- **Automation Engineer:** Automatización de casos repetitivos
+
+### 13.2 Comunicación:
+- Reuniones diarias de seguimiento
+- Reportes de estado cada 2 días
+- Escalación inmediata de defectos críticos
+
+---
+
+## 📋 14. ENTREGABLES
+
+### 14.1 Documentos de Entrada:
+- Análisis de requisitos
+- Especificaciones funcionales
+- Plan de pruebas (este documento)
+
+### 14.2 Documentos de Salida:
+- Casos de prueba detallados
+- Reportes de ejecución
+- Reporte de defectos
+- Reporte final de pruebas
+- Recomendaciones de mejora
+
+---
+
+## ✅ 15. APROBACIONES
+
+**Preparado por:** Equipo de QA
+**Revisado por:** Test Manager
+**Aprobado por:** Project Manager
+
+**Fecha de Aprobación:** _________________
+
+---
+
+**NOTA:** Este plan de pruebas está diseñado específicamente para SauceDemo, una aplicación de prueba. Los tiempos y recursos pueden ajustarse según las necesidades específicas del proyecto.

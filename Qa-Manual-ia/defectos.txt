@@ -1,0 +1,2 @@
+1.- El sistema permite iniciar sesion con un usuario vacio y un password vacio se espera que esto no este permitdo
+Ruta: Pagina->Login->User->Boton Login

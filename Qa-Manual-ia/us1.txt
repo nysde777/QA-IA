@@ -1,0 +1,26 @@
+HU-002: Manejo de Credenciales Incorrectas
+Description
+
+Como usuario estándar  
+Quiero recibir un mensaje de error claro cuando ingreso credenciales incorrectas  
+Para entender qué está mal y poder corregirlo  
+
+Criterios de Aceptación:
+
+    ✅ Dado que estoy en la página de login
+
+    ✅ Cuando ingreso credenciales incorrectas
+
+    ✅ Entonces veo un mensaje de error específico
+
+    ✅ Y permanezco en la página de login
+
+    ✅ Y no tengo acceso a la tienda
+
+Definición de Terminado:
+
+    Mensajes de error claros y específicos
+
+    Validación de campos funcional
+
+    Prevención de acceso no autorizado

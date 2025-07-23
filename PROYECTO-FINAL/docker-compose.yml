@@ -1,0 +1,29 @@
+services:
+  jenkins-cypress:
+    build: .
+    container_name: jenkins-cypress-container
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      # Mount the current project directory
+      - ./:/workspace/cypress-project
+      # Jenkins data persistence
+      - jenkins_home:/var/jenkins_home
+      # Cypress cache
+      - cypress_cache:/opt/cypress-cache
+    environment:
+      - JENKINS_OPTS="--httpPort=8080"
+      - CYPRESS_CACHE_FOLDER=/opt/cypress-cache
+      - JAVA_OPTS="-Djava.awt.headless=true -Duser.home=/tmp"
+    user: "0:0"  # Run as root to avoid permission issues
+    networks:
+      - jenkins-network
+
+volumes:
+  jenkins_home:
+  cypress_cache:
+
+networks:
+  jenkins-network:
+    driver: bridge

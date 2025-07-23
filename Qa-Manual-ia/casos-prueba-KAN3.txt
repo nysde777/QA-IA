@@ -1,0 +1,475 @@
+# CASOS DE PRUEBA ESPECÍFICOS - KAN-3
+## Test Cases for User Story: HU-002 - Manejo de Credenciales Incorrectas
+
+---
+
+## 📋 INFORMACIÓN DE LA HISTORIA DE USUARIO
+
+**Historia de Usuario:** KAN-3 - HU-002
+**Título:** Manejo de Credenciales Incorrectas
+**Descripción:** Como usuario estándar, quiero recibir un mensaje de error claro cuando ingreso credenciales incorrectas, para entender qué está mal y poder corregirlo
+
+**Criterios de Aceptación:**
+- ✅ Dado que estoy en la página de login
+- ✅ Cuando ingreso credenciales incorrectas
+- ✅ Entonces veo un mensaje de error específico
+- ✅ Y permanezco en la página de login
+- ✅ Y no tengo acceso a la tienda
+
+**Definición de Terminado:**
+- Mensajes de error claros y específicos
+- Validación de campos funcional
+- Prevención de acceso no autorizado
+
+---
+
+## 🧪 CASOS DE PRUEBA PARA KAN-3
+
+### 📝 TC-KAN3-001: Usuario Inexistente con Contraseña Válida
+**Historia de Usuario:** KAN-3
+**Criterio de Aceptación:** Mensaje de error específico para credenciales incorrectas
+**Tipo:** Negativo
+**Prioridad:** Alta
+**Categoría:** Validación de Autenticación
+
+**Precondiciones:**
+- Navegador abierto
+- Acceso a https://www.saucedemo.com/
+- Página de login cargada completamente
+
+**Pasos de Ejecución:**
+1. Verificar que la página de login esté cargada
+2. Ingresar "usuario_inexistente" en el campo Username
+3. Ingresar "secret_sauce" en el campo Password
+4. Hacer clic en el botón "Login"
+5. Verificar el mensaje de error mostrado
+6. Verificar que permanezco en la página de login
+7. Intentar acceder directamente a /inventory.html
+
+**Resultado Esperado:**
+- Se muestra mensaje de error: "Epic sadface: Username and password do not match any user in this service"
+- Permanece en la página de login (URL: https://www.saucedemo.com/)
+- El campo Username mantiene el valor "usuario_inexistente"
+- El campo Password mantiene el valor ingresado
+- No hay redirección automática
+- Acceso directo a /inventory.html redirige a login
+- El mensaje de error es claro y específico
+
+**Datos de Prueba:**
+- Usuario: usuario_inexistente
+- Contraseña: secret_sauce
+- URL esperada: https://www.saucedemo.com/
+- Mensaje de error esperado: "Epic sadface: Username and password do not match any user in this service"
+
+---
+
+### 📝 TC-KAN3-002: Usuario Válido con Contraseña Incorrecta
+**Historia de Usuario:** KAN-3
+**Criterio de Aceptación:** Mensaje de error específico para credenciales incorrectas
+**Tipo:** Negativo
+**Prioridad:** Alta
+**Categoría:** Validación de Autenticación
+
+**Precondiciones:**
+- Navegador abierto
+- Acceso a https://www.saucedemo.com/
+- Página de login cargada completamente
+
+**Pasos de Ejecución:**
+1. Verificar que la página de login esté cargada
+2. Ingresar "standard_user" en el campo Username
+3. Ingresar "contraseña_incorrecta" en el campo Password
+4. Hacer clic en el botón "Login"
+5. Verificar el mensaje de error mostrado
+6. Verificar que permanezco en la página de login
+7. Verificar que no tengo acceso a la tienda
+
+**Resultado Esperado:**
+- Se muestra mensaje de error: "Epic sadface: Username and password do not match any user in this service"
+- Permanece en la página de login (URL: https://www.saucedemo.com/)
+- El campo Username mantiene el valor "standard_user"
+- El campo Password mantiene el valor ingresado
+- No hay redirección a páginas protegidas
+- El mensaje de error es claro y comprensible
+
+**Datos de Prueba:**
+- Usuario: standard_user
+- Contraseña: contraseña_incorrecta
+- URL esperada: https://www.saucedemo.com/
+- Mensaje de error esperado: "Epic sadface: Username and password do not match any user in this service"
+
+---
+
+### 📝 TC-KAN3-003: Usuario Inexistente con Contraseña Incorrecta
+**Historia de Usuario:** KAN-3
+**Criterio de Aceptación:** Mensaje de error específico para credenciales incorrectas
+**Tipo:** Negativo
+**Prioridad:** Alta
+**Categoría:** Validación de Autenticación
+
+**Precondiciones:**
+- Navegador abierto
+- Acceso a https://www.saucedemo.com/
+- Página de login cargada completamente
+
+**Pasos de Ejecución:**
+1. Verificar que la página de login esté cargada
+2. Ingresar "usuario_falso" en el campo Username
+3. Ingresar "contraseña_falsa" en el campo Password
+4. Hacer clic en el botón "Login"
+5. Verificar el mensaje de error mostrado
+6. Verificar que permanezco en la página de login
+
+**Resultado Esperado:**
+- Se muestra mensaje de error: "Epic sadface: Username and password do not match any user in this service"
+- Permanece en la página de login (URL: https://www.saucedemo.com/)
+- Los campos mantienen los valores ingresados
+- No hay redirección automática
+- El mensaje de error es consistente con otros casos de credenciales incorrectas
+
+**Datos de Prueba:**
+- Usuario: usuario_falso
+- Contraseña: contraseña_falsa
+- URL esperada: https://www.saucedemo.com/
+- Mensaje de error esperado: "Epic sadface: Username and password do not match any user in this service"
+
+---
+
+### 📝 TC-KAN3-004: Campo Username Vacío con Contraseña Válida
+**Historia de Usuario:** KAN-3
+**Criterio de Aceptación:** Mensaje de error específico para credenciales incorrectas
+**Tipo:** Negativo - Borde
+**Prioridad:** Alta
+**Categoría:** Validación de Campos
+
+**Precondiciones:**
+- Navegador abierto
+- Acceso a https://www.saucedemo.com/
+- Página de login cargada completamente
+
+**Pasos de Ejecución:**
+1. Verificar que la página de login esté cargada
+2. Dejar el campo Username vacío
+3. Ingresar "secret_sauce" en el campo Password
+4. Hacer clic en el botón "Login"
+5. Verificar el mensaje de error mostrado
+6. Verificar que permanezco en la página de login
+
+**Resultado Esperado:**
+- Se muestra mensaje de error: "Epic sadface: Username is required"
+- Permanece en la página de login (URL: https://www.saucedemo.com/)
+- El campo Username permanece vacío
+- El campo Password mantiene el valor "secret_sauce"
+- No hay redirección automática
+- El mensaje de error es específico para campo requerido
+
+**Datos de Prueba:**
+- Usuario: (vacío)
+- Contraseña: secret_sauce
+- URL esperada: https://www.saucedemo.com/
+- Mensaje de error esperado: "Epic sadface: Username is required"
+
+---
+
+### 📝 TC-KAN3-005: Campo Password Vacío con Usuario Válido
+**Historia de Usuario:** KAN-3
+**Criterio de Aceptación:** Mensaje de error específico para credenciales incorrectas
+**Tipo:** Negativo - Borde
+**Prioridad:** Alta
+**Categoría:** Validación de Campos
+
+**Precondiciones:**
+- Navegador abierto
+- Acceso a https://www.saucedemo.com/
+- Página de login cargada completamente
+
+**Pasos de Ejecución:**
+1. Verificar que la página de login esté cargada
+2. Ingresar "standard_user" en el campo Username
+3. Dejar el campo Password vacío
+4. Hacer clic en el botón "Login"
+5. Verificar el mensaje de error mostrado
+6. Verificar que permanezco en la página de login
+
+**Resultado Esperado:**
+- Se muestra mensaje de error: "Epic sadface: Password is required"
+- Permanece en la página de login (URL: https://www.saucedemo.com/)
+- El campo Username mantiene el valor "standard_user"
+- El campo Password permanece vacío
+- No hay redirección automática
+- El mensaje de error es específico para campo requerido
+
+**Datos de Prueba:**
+- Usuario: standard_user
+- Contraseña: (vacío)
+- URL esperada: https://www.saucedemo.com/
+- Mensaje de error esperado: "Epic sadface: Password is required"
+
+---
+
+### 📝 TC-KAN3-006: Ambos Campos Vacíos
+**Historia de Usuario:** KAN-3
+**Criterio de Aceptación:** Mensaje de error específico para credenciales incorrectas
+**Tipo:** Negativo - Borde
+**Prioridad:** Media
+**Categoría:** Validación de Campos
+
+**Precondiciones:**
+- Navegador abierto
+- Acceso a https://www.saucedemo.com/
+- Página de login cargada completamente
+
+**Pasos de Ejecución:**
+1. Verificar que la página de login esté cargada
+2. Dejar el campo Username vacío
+3. Dejar el campo Password vacío
+4. Hacer clic en el botón "Login"
+5. Verificar el mensaje de error mostrado
+6. Verificar que permanezco en la página de login
+
+**Resultado Esperado:**
+- Se muestra mensaje de error: "Epic sadface: Username is required"
+- Permanece en la página de login (URL: https://www.saucedemo.com/)
+- Ambos campos permanecen vacíos
+- No hay redirección automática
+- El mensaje de error prioriza el primer campo requerido
+
+**Datos de Prueba:**
+- Usuario: (vacío)
+- Contraseña: (vacío)
+- URL esperada: https://www.saucedemo.com/
+- Mensaje de error esperado: "Epic sadface: Username is required"
+
+---
+
+### 📝 TC-KAN3-007: Credenciales con Caracteres Especiales
+**Historia de Usuario:** KAN-3
+**Criterio de Aceptación:** Mensaje de error específico para credenciales incorrectas
+**Tipo:** Negativo - Borde
+**Prioridad:** Media
+**Categoría:** Validación de Entrada
+
+**Precondiciones:**
+- Navegador abierto
+- Acceso a https://www.saucedemo.com/
+- Página de login cargada completamente
+
+**Pasos de Ejecución:**
+1. Verificar que la página de login esté cargada
+2. Ingresar "user@#$%!" en el campo Username
+3. Ingresar "pass@#$%!" en el campo Password
+4. Hacer clic en el botón "Login"
+5. Verificar el mensaje de error mostrado
+6. Verificar que permanezco en la página de login
+
+**Resultado Esperado:**
+- Se muestra mensaje de error: "Epic sadface: Username and password do not match any user in this service"
+- Permanece en la página de login (URL: https://www.saucedemo.com/)
+- Los campos mantienen los valores con caracteres especiales
+- No hay redirección automática
+- El sistema maneja apropiadamente caracteres especiales
+
+**Datos de Prueba:**
+- Usuario: user@#$%!
+- Contraseña: pass@#$%!
+- URL esperada: https://www.saucedemo.com/
+- Mensaje de error esperado: "Epic sadface: Username and password do not match any user in this service"
+
+---
+
+### 📝 TC-KAN3-008: Credenciales con Espacios
+**Historia de Usuario:** KAN-3
+**Criterio de Aceptación:** Mensaje de error específico para credenciales incorrectas
+**Tipo:** Negativo - Borde
+**Prioridad:** Media
+**Categoría:** Validación de Entrada
+
+**Precondiciones:**
+- Navegador abierto
+- Acceso a https://www.saucedemo.com/
+- Página de login cargada completamente
+
+**Pasos de Ejecución:**
+1. Verificar que la página de login esté cargada
+2. Ingresar " standard_user " en el campo Username (con espacios)
+3. Ingresar " secret_sauce " en el campo Password (con espacios)
+4. Hacer clic en el botón "Login"
+5. Verificar el mensaje de error mostrado
+6. Verificar que permanezco en la página de login
+
+**Resultado Esperado:**
+- Se muestra mensaje de error: "Epic sadface: Username and password do not match any user in this service"
+- Permanece en la página de login (URL: https://www.saucedemo.com/)
+- Los campos mantienen los valores con espacios
+- No hay redirección automática
+- El sistema no realiza trim automático de espacios
+
+**Datos de Prueba:**
+- Usuario: " standard_user " (con espacios)
+- Contraseña: " secret_sauce " (con espacios)
+- URL esperada: https://www.saucedemo.com/
+- Mensaje de error esperado: "Epic sadface: Username and password do not match any user in this service"
+
+---
+
+### 📝 TC-KAN3-009: Múltiples Intentos de Login Incorrectos
+**Historia de Usuario:** KAN-3
+**Criterio de Aceptación:** Mensaje de error específico para credenciales incorrectas
+**Tipo:** Negativo - Secuencial
+**Prioridad:** Media
+**Categoría:** Validación de Comportamiento
+
+**Precondiciones:**
+- Navegador abierto
+- Acceso a https://www.saucedemo.com/
+- Página de login cargada completamente
+
+**Pasos de Ejecución:**
+1. Verificar que la página de login esté cargada
+2. Ingresar "usuario_falso" en el campo Username
+3. Ingresar "contraseña_falsa" en el campo Password
+4. Hacer clic en el botón "Login"
+5. Verificar el mensaje de error
+6. Repetir pasos 2-5 dos veces más (total 3 intentos)
+7. Verificar comportamiento después de múltiples intentos
+
+**Resultado Esperado:**
+- En cada intento se muestra: "Epic sadface: Username and password do not match any user in this service"
+- Permanece en la página de login después de cada intento
+- No hay bloqueo automático después de múltiples intentos fallidos
+- El mensaje de error es consistente en todos los intentos
+- Los campos se mantienen disponibles para nuevos intentos
+
+**Datos de Prueba:**
+- Usuario: usuario_falso (en cada intento)
+- Contraseña: contraseña_falsa (en cada intento)
+- Número de intentos: 3
+- Mensaje de error esperado: Consistente en todos los intentos
+
+---
+
+### 📝 TC-KAN3-010: Verificación de Acceso Denegado a Páginas Protegidas
+**Historia de Usuario:** KAN-3
+**Criterio de Aceptación:** No tengo acceso a la tienda
+**Tipo:** Negativo - Seguridad
+**Prioridad:** Alta
+**Categoría:** Control de Acceso
+
+**Precondiciones:**
+- Navegador abierto
+- Acceso a https://www.saucedemo.com/
+- Intento fallido de login realizado
+
+**Pasos de Ejecución:**
+1. Intentar login con credenciales incorrectas
+2. Verificar que permanezco en la página de login
+3. Intentar acceder directamente a /inventory.html
+4. Verificar redirección
+5. Intentar acceder directamente a /cart.html
+6. Verificar redirección
+7. Intentar acceder directamente a /checkout-step-one.html
+8. Verificar redirección
+
+**Resultado Esperado:**
+- Después del login fallido, permanezco en la página de login
+- Acceso directo a /inventory.html redirige a login
+- Acceso directo a /cart.html redirige a login
+- Acceso directo a /checkout-step-one.html redirige a login
+- Todas las páginas protegidas requieren autenticación válida
+- No hay manera de bypasear la validación de credenciales
+
+**Datos de Prueba:**
+- URLs protegidas: /inventory.html, /cart.html, /checkout-step-one.html
+- Comportamiento esperado: Redirección forzada a login
+- Estado de autenticación: No autenticado
+
+---
+
+## 📊 MATRIZ DE COBERTURA - KAN-3
+
+### Criterios de Aceptación vs Casos de Prueba:
+
+| Criterio de Aceptación | Casos de Prueba | Cobertura |
+|------------------------|-----------------|-----------|
+| Dado que estoy en la página de login | TC-KAN3-001 al TC-KAN3-010 | ✅ 100% |
+| Cuando ingreso credenciales incorrectas | TC-KAN3-001, TC-KAN3-002, TC-KAN3-003, TC-KAN3-007, TC-KAN3-008, TC-KAN3-009 | ✅ 100% |
+| Entonces veo un mensaje de error específico | TC-KAN3-001 al TC-KAN3-009 | ✅ 100% |
+| Y permanezco en la página de login | TC-KAN3-001 al TC-KAN3-009 | ✅ 100% |
+| Y no tengo acceso a la tienda | TC-KAN3-010 | ✅ 100% |
+
+### Definición de Terminado vs Casos de Prueba:
+
+| Definición de Terminado | Casos de Prueba | Cobertura |
+|-------------------------|-----------------|-----------|
+| Mensajes de error claros y específicos | TC-KAN3-001 al TC-KAN3-009 | ✅ 100% |
+| Validación de campos funcional | TC-KAN3-004, TC-KAN3-005, TC-KAN3-006 | ✅ 100% |
+| Prevención de acceso no autorizado | TC-KAN3-010 | ✅ 100% |
+
+---
+
+## 🎯 RESUMEN DE COBERTURA
+
+### Distribución de Casos:
+- **Total de Casos:** 10
+- **Casos Negativos:** 10 (100%)
+- **Casos de Borde:** 6 (60%)
+- **Casos de Seguridad:** 1 (10%)
+
+### Prioridad:
+- **Alta:** 7 casos (70%)
+- **Media:** 3 casos (30%)
+
+### Escenarios Cubiertos:
+- ✅ Usuario inexistente
+- ✅ Contraseña incorrecta
+- ✅ Campos vacíos
+- ✅ Caracteres especiales
+- ✅ Espacios en credenciales
+- ✅ Múltiples intentos
+- ✅ Verificación de acceso denegado
+
+---
+
+## 📋 DATOS DE PRUEBA CONSOLIDADOS
+
+### Credenciales Inválidas:
+- **Usuarios falsos:** usuario_inexistente, usuario_falso, user@#$%!
+- **Contraseñas falsas:** contraseña_incorrecta, contraseña_falsa, pass@#$%!
+- **Campos vacíos:** (vacío)
+- **Con espacios:** " standard_user ", " secret_sauce "
+
+### Mensajes de Error Esperados:
+- **Credenciales incorrectas:** "Epic sadface: Username and password do not match any user in this service"
+- **Username requerido:** "Epic sadface: Username is required"
+- **Password requerido:** "Epic sadface: Password is required"
+
+### URLs de Verificación:
+- **Página de login:** https://www.saucedemo.com/
+- **Páginas protegidas:** /inventory.html, /cart.html, /checkout-step-one.html
+
+---
+
+## ✅ CRITERIOS DE ACEPTACIÓN DE CASOS
+
+### Para considerar un caso como PASADO:
+- ✅ El mensaje de error es exactamente el esperado
+- ✅ Permanece en la página de login
+- ✅ No hay redirección no autorizada
+- ✅ Los campos mantienen el comportamiento esperado
+- ✅ No se puede acceder a páginas protegidas
+
+### Para considerar un caso como FALLIDO:
+- ❌ El mensaje de error es diferente al esperado
+- ❌ Hay redirección no autorizada
+- ❌ Se puede acceder a páginas protegidas sin autenticación
+- ❌ Los campos no mantienen el comportamiento esperado
+
+---
+
+**Historia de Usuario:** KAN-3
+**Preparado por:** Equipo de QA
+**Revisado por:** Test Lead
+**Aprobado por:** Product Owner
+
+**Fecha:** Julio 2025
+**Versión:** 1.0

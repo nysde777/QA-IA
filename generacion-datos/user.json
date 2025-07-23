@@ -1,0 +1,122 @@
+[
+    {
+        "name": "morpheus",
+        "job": "leader"
+    },
+    {
+        "name": "neo",
+        "job": "the one"
+    },
+    {
+        "name": "trinity",
+        "job": "hacker"
+    },
+    {
+        "name": "smith",
+        "job": "agent"
+    },
+    {
+        "name": "oracle",
+        "job": "seer"
+    },
+    {
+        "name": "cypher",
+        "job": "traitor"
+    },
+    {
+        "name": "tank",
+        "job": "operator"
+    },
+    {
+        "name": "dozer",
+        "job": "operator"
+    },
+    {
+        "name": "mouse",
+        "job": "programmer"
+    },
+    {
+        "name": "apoc",
+        "job": "crew"
+    },
+    {
+        "name": "switch",
+        "job": "crew"
+    },
+    {
+        "name": "niobe",
+        "job": "captain"
+    },
+    {
+        "name": "ghost",
+        "job": "first mate"
+    },
+    {
+        "name": "merovingian",
+        "job": "program"
+    },
+    {
+        "name": "persephone",
+        "job": "program"
+    },
+    {
+        "name": "seraph",
+        "job": "guardian"
+    },
+    {
+        "name": "sati",
+        "job": "program"
+    },
+    {
+        "name": "rama",
+        "job": "program"
+    },
+    {
+        "name": "kamala",
+        "job": "program"
+    },
+    {
+        "name": "zion",
+        "job": "city"
+    },
+    {
+        "name": "mifune",
+        "job": "commander"
+    },
+    {
+        "name": "lock",
+        "job": "commander"
+    },
+    {
+        "name": "kid",
+        "job": "crew"
+    },
+    {
+        "name": "link",
+        "job": "operator"
+    },
+    {
+        "name": "bane",
+        "job": "crew"
+    },
+    {
+        "name": "deus",
+        "job": "ex machina"
+    },
+    {
+        "name": "architect",
+        "job": "creator"
+    },
+    {
+        "name": "keymaker",
+        "job": "program"
+    },
+    {
+        "name": "trainman",
+        "job": "program"
+    },
+    {
+        "name": "matrix",
+        "job": "system"
+    }
+]

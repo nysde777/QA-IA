@@ -1,0 +1,1266 @@
+# CASOS DE PRUEBA - SAUCEDEMO
+## Test Cases for E-commerce Demo Application
+
+---
+
+## 📋 INFORMACIÓN GENERAL
+
+**Aplicación:** SauceDemo (https://www.saucedemo.com/)
+**Tipo de Pruebas:** Funcionales, UI, Integración
+**Objetivo:** Validar todos los requisitos funcionales y no funcionales
+**Fecha:** Julio 2025
+**Responsable:** Equipo de QA
+
+---
+
+## 🎯 COBERTURA DE REQUISITOS
+
+### Requisitos Cubiertos:
+- ✅ Autenticación y control de acceso
+- ✅ Catálogo y visualización de productos
+- ✅ Gestión de carrito de compras
+- ✅ Proceso de checkout completo
+- ✅ Navegación y menú lateral
+- ✅ Funcionalidades especiales por tipo de usuario
+- ✅ Compatibilidad y responsive design
+
+---
+
+## 🧪 SUITE DE PRUEBAS 1: MÓDULO DE AUTENTICACIÓN
+
+### 📝 TC-001: Login Exitoso con Usuario Estándar
+**Tipo:** Positivo
+**Prioridad:** Alta
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Navegador abierto
+- Acceso a https://www.saucedemo.com/
+
+**Pasos:**
+1. Navegar a la página de login
+2. Ingresar "standard_user" en el campo Username
+3. Ingresar "secret_sauce" en el campo Password
+4. Hacer clic en el botón "Login"
+
+**Resultado Esperado:**
+- Se redirige a la página de inventario (/inventory.html)
+- Se muestra el catálogo de productos
+- El header muestra "Products"
+- El menú hamburguesa está disponible
+
+**Datos de Prueba:**
+- Usuario: standard_user
+- Contraseña: secret_sauce
+
+---
+
+### 📝 TC-002: Login con Usuario Inexistente
+**Tipo:** Negativo
+**Prioridad:** Alta
+**Categoría:** Validación
+
+**Precondiciones:**
+- Navegador abierto
+- Acceso a https://www.saucedemo.com/
+
+**Pasos:**
+1. Navegar a la página de login
+2. Ingresar "usuario_inexistente" en el campo Username
+3. Ingresar "secret_sauce" en el campo Password
+4. Hacer clic en el botón "Login"
+
+**Resultado Esperado:**
+- Permanece en la página de login
+- Se muestra mensaje de error: "Epic sadface: Username and password do not match any user in this service"
+- Los campos permanecen con los valores ingresados
+- No hay redirección
+
+**Datos de Prueba:**
+- Usuario: usuario_inexistente
+- Contraseña: secret_sauce
+
+---
+
+### 📝 TC-003: Login con Contraseña Incorrecta
+**Tipo:** Negativo
+**Prioridad:** Alta
+**Categoría:** Validación
+
+**Precondiciones:**
+- Navegador abierto
+- Acceso a https://www.saucedemo.com/
+
+**Pasos:**
+1. Navegar a la página de login
+2. Ingresar "standard_user" en el campo Username
+3. Ingresar "contraseña_incorrecta" en el campo Password
+4. Hacer clic en el botón "Login"
+
+**Resultado Esperado:**
+- Permanece en la página de login
+- Se muestra mensaje de error: "Epic sadface: Username and password do not match any user in this service"
+- Los campos permanecen con los valores ingresados
+- No hay redirección
+
+**Datos de Prueba:**
+- Usuario: standard_user
+- Contraseña: contraseña_incorrecta
+
+---
+
+### 📝 TC-004: Login con Campos Vacíos
+**Tipo:** Negativo - Borde
+**Prioridad:** Media
+**Categoría:** Validación
+
+**Precondiciones:**
+- Navegador abierto
+- Acceso a https://www.saucedemo.com/
+
+**Pasos:**
+1. Navegar a la página de login
+2. Dejar el campo Username vacío
+3. Dejar el campo Password vacío
+4. Hacer clic en el botón "Login"
+
+**Resultado Esperado:**
+- Permanece en la página de login
+- Se muestra mensaje de error: "Epic sadface: Username is required"
+- No hay redirección
+
+**Datos de Prueba:**
+- Usuario: (vacío)
+- Contraseña: (vacío)
+
+---
+
+### 📝 TC-005: Login con Usuario Bloqueado
+**Tipo:** Negativo
+**Prioridad:** Alta
+**Categoría:** Control de Acceso
+
+**Precondiciones:**
+- Navegador abierto
+- Acceso a https://www.saucedemo.com/
+
+**Pasos:**
+1. Navegar a la página de login
+2. Ingresar "locked_out_user" en el campo Username
+3. Ingresar "secret_sauce" en el campo Password
+4. Hacer clic en el botón "Login"
+
+**Resultado Esperado:**
+- Permanece en la página de login
+- Se muestra mensaje de error: "Epic sadface: Sorry, this user has been locked out"
+- No hay redirección
+- El acceso está completamente bloqueado
+
+**Datos de Prueba:**
+- Usuario: locked_out_user
+- Contraseña: secret_sauce
+
+---
+
+### 📝 TC-006: Login con Usuario de Problemas
+**Tipo:** Positivo - Especial
+**Prioridad:** Media
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Navegador abierto
+- Acceso a https://www.saucedemo.com/
+
+**Pasos:**
+1. Navegar a la página de login
+2. Ingresar "problem_user" en el campo Username
+3. Ingresar "secret_sauce" en el campo Password
+4. Hacer clic en el botón "Login"
+
+**Resultado Esperado:**
+- Se redirige a la página de inventario
+- Se muestra el catálogo de productos
+- Pueden existir problemas visuales específicos (imágenes, elementos)
+- El acceso básico funciona
+
+**Datos de Prueba:**
+- Usuario: problem_user
+- Contraseña: secret_sauce
+
+---
+
+### 📝 TC-007: Login con Usuario de Rendimiento
+**Tipo:** Positivo - Especial
+**Prioridad:** Media
+**Categoría:** Rendimiento
+
+**Precondiciones:**
+- Navegador abierto
+- Acceso a https://www.saucedemo.com/
+
+**Pasos:**
+1. Navegar a la página de login
+2. Ingresar "performance_glitch_user" en el campo Username
+3. Ingresar "secret_sauce" en el campo Password
+4. Hacer clic en el botón "Login"
+
+**Resultado Esperado:**
+- Se redirige a la página de inventario (puede tardar más)
+- Se muestra el catálogo de productos
+- Las acciones pueden ser más lentas de lo normal
+- La funcionalidad sigue siendo correcta
+
+**Datos de Prueba:**
+- Usuario: performance_glitch_user
+- Contraseña: secret_sauce
+
+---
+
+## 🛍️ SUITE DE PRUEBAS 2: MÓDULO DE CATÁLOGO
+
+### 📝 TC-008: Visualización Correcta del Catálogo
+**Tipo:** Positivo
+**Prioridad:** Alta
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- En la página de inventario
+
+**Pasos:**
+1. Verificar que se muestren todos los productos
+2. Verificar que cada producto tenga: imagen, nombre, descripción, precio
+3. Verificar que cada producto tenga botón "Add to cart"
+4. Contar el número total de productos
+
+**Resultado Esperado:**
+- Se muestran 6 productos en total
+- Cada producto tiene todos los elementos requeridos
+- Los precios están en formato correcto ($X.XX)
+- Los botones "Add to cart" son funcionales
+
+**Datos de Prueba:**
+- Productos esperados: 6 items
+- Elementos por producto: imagen, nombre, descripción, precio, botón
+
+---
+
+### 📝 TC-009: Ordenamiento por Nombre (A-Z)
+**Tipo:** Positivo
+**Prioridad:** Media
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- En la página de inventario
+
+**Pasos:**
+1. Localizar el dropdown de ordenamiento
+2. Seleccionar "Name (A to Z)"
+3. Verificar el orden de los productos
+
+**Resultado Esperado:**
+- Los productos se ordenan alfabéticamente de A a Z
+- El primer producto comienza con una letra menor
+- El último producto comienza con una letra mayor
+- El ordenamiento se aplica inmediatamente
+
+**Datos de Prueba:**
+- Opción seleccionada: Name (A to Z)
+- Verificación: Orden alfabético ascendente
+
+---
+
+### 📝 TC-010: Ordenamiento por Nombre (Z-A)
+**Tipo:** Positivo
+**Prioridad:** Media
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- En la página de inventario
+
+**Pasos:**
+1. Localizar el dropdown de ordenamiento
+2. Seleccionar "Name (Z to A)"
+3. Verificar el orden de los productos
+
+**Resultado Esperado:**
+- Los productos se ordenan alfabéticamente de Z a A
+- El primer producto comienza con una letra mayor
+- El último producto comienza con una letra menor
+- El ordenamiento se aplica inmediatamente
+
+**Datos de Prueba:**
+- Opción seleccionada: Name (Z to A)
+- Verificación: Orden alfabético descendente
+
+---
+
+### 📝 TC-011: Ordenamiento por Precio (Bajo a Alto)
+**Tipo:** Positivo
+**Prioridad:** Media
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- En la página de inventario
+
+**Pasos:**
+1. Localizar el dropdown de ordenamiento
+2. Seleccionar "Price (low to high)"
+3. Verificar el orden de los productos por precio
+
+**Resultado Esperado:**
+- Los productos se ordenan por precio ascendente
+- El primer producto tiene el precio más bajo
+- El último producto tiene el precio más alto
+- El ordenamiento se aplica inmediatamente
+
+**Datos de Prueba:**
+- Opción seleccionada: Price (low to high)
+- Verificación: Orden de precios ascendente
+
+---
+
+### 📝 TC-012: Ordenamiento por Precio (Alto a Bajo)
+**Tipo:** Positivo
+**Prioridad:** Media
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- En la página de inventario
+
+**Pasos:**
+1. Localizar el dropdown de ordenamiento
+2. Seleccionar "Price (high to low)"
+3. Verificar el orden de los productos por precio
+
+**Resultado Esperado:**
+- Los productos se ordenan por precio descendente
+- El primer producto tiene el precio más alto
+- El último producto tiene el precio más bajo
+- El ordenamiento se aplica inmediatamente
+
+**Datos de Prueba:**
+- Opción seleccionada: Price (high to low)
+- Verificación: Orden de precios descendente
+
+---
+
+## 🛒 SUITE DE PRUEBAS 3: MÓDULO DE CARRITO
+
+### 📝 TC-013: Agregar Producto al Carrito
+**Tipo:** Positivo
+**Prioridad:** Alta
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- En la página de inventario
+- Carrito vacío
+
+**Pasos:**
+1. Seleccionar un producto (ej: Sauce Labs Backpack)
+2. Hacer clic en "Add to cart"
+3. Verificar cambios en la interfaz
+
+**Resultado Esperado:**
+- El botón cambia a "Remove"
+- El contador del carrito muestra "1"
+- El producto se agrega al carrito (verificable haciendo clic en el carrito)
+
+**Datos de Prueba:**
+- Producto: Sauce Labs Backpack
+- Estado inicial: Carrito vacío
+- Estado final: 1 producto en carrito
+
+---
+
+### 📝 TC-014: Agregar Múltiples Productos al Carrito
+**Tipo:** Positivo
+**Prioridad:** Alta
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- En la página de inventario
+- Carrito vacío
+
+**Pasos:**
+1. Hacer clic en "Add to cart" para el primer producto
+2. Hacer clic en "Add to cart" para el segundo producto
+3. Hacer clic en "Add to cart" para el tercer producto
+4. Verificar contador del carrito
+
+**Resultado Esperado:**
+- Los 3 botones cambian a "Remove"
+- El contador del carrito muestra "3"
+- Los 3 productos están en el carrito
+
+**Datos de Prueba:**
+- Productos: 3 diferentes
+- Estado inicial: Carrito vacío
+- Estado final: 3 productos en carrito
+
+---
+
+### 📝 TC-015: Remover Producto del Carrito
+**Tipo:** Positivo
+**Prioridad:** Alta
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- En la página de inventario
+- 1 producto en el carrito
+
+**Pasos:**
+1. Localizar el producto que está en el carrito (botón "Remove")
+2. Hacer clic en "Remove"
+3. Verificar cambios en la interfaz
+
+**Resultado Esperado:**
+- El botón cambia a "Add to cart"
+- El contador del carrito muestra "0" o desaparece
+- El producto ya no está en el carrito
+
+**Datos de Prueba:**
+- Producto: Previamente agregado
+- Estado inicial: 1 producto en carrito
+- Estado final: Carrito vacío
+
+---
+
+### 📝 TC-016: Visualizar Resumen del Carrito
+**Tipo:** Positivo
+**Prioridad:** Alta
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- 2 productos en el carrito
+
+**Pasos:**
+1. Hacer clic en el icono del carrito
+2. Verificar información mostrada
+3. Verificar opciones disponibles
+
+**Resultado Esperado:**
+- Se muestra la página del carrito
+- Se listan todos los productos agregados
+- Cada producto muestra: nombre, descripción, precio
+- Hay botones "Continue Shopping" y "Checkout"
+- Se puede remover productos desde aquí
+
+**Datos de Prueba:**
+- Productos en carrito: 2
+- Página destino: /cart.html
+
+---
+
+### 📝 TC-017: Carrito Vacío - Verificar Estado
+**Tipo:** Borde
+**Prioridad:** Media
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- Carrito vacío
+
+**Pasos:**
+1. Hacer clic en el icono del carrito
+2. Verificar información mostrada
+3. Verificar opciones disponibles
+
+**Resultado Esperado:**
+- Se muestra la página del carrito
+- No se listan productos
+- Los botones "Continue Shopping" y "Checkout" están disponibles
+- El checkout debe manejar el carrito vacío apropiadamente
+
+**Datos de Prueba:**
+- Productos en carrito: 0
+- Estado: Carrito vacío
+
+---
+
+### 📝 TC-018: Contador del Carrito - Múltiples Operaciones
+**Tipo:** Positivo
+**Prioridad:** Media
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- Carrito vacío
+
+**Pasos:**
+1. Agregar 3 productos al carrito
+2. Verificar contador = 3
+3. Remover 1 producto
+4. Verificar contador = 2
+5. Agregar 2 productos más
+6. Verificar contador = 4
+
+**Resultado Esperado:**
+- El contador se actualiza correctamente en cada operación
+- El contador refleja el número exacto de productos
+- Los cambios son inmediatos
+
+**Datos de Prueba:**
+- Operaciones: Agregar 3, Remover 1, Agregar 2
+- Contador final esperado: 4
+
+---
+
+## 💳 SUITE DE PRUEBAS 4: MÓDULO DE CHECKOUT
+
+### 📝 TC-019: Checkout Paso 1 - Información Personal Válida
+**Tipo:** Positivo
+**Prioridad:** Alta
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- Al menos 1 producto en el carrito
+- En la página del carrito
+
+**Pasos:**
+1. Hacer clic en "Checkout"
+2. Completar First Name: "Juan"
+3. Completar Last Name: "Pérez"
+4. Completar Postal Code: "12345"
+5. Hacer clic en "Continue"
+
+**Resultado Esperado:**
+- Se redirige al paso 2 del checkout
+- Se muestra el resumen del pedido
+- La información personal se mantiene
+
+**Datos de Prueba:**
+- First Name: Juan
+- Last Name: Pérez
+- Postal Code: 12345
+
+---
+
+### 📝 TC-020: Checkout Paso 1 - Campos Obligatorios Vacíos
+**Tipo:** Negativo
+**Prioridad:** Alta
+**Categoría:** Validación
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- Al menos 1 producto en el carrito
+- En la página del carrito
+
+**Pasos:**
+1. Hacer clic en "Checkout"
+2. Dejar First Name vacío
+3. Completar Last Name: "Pérez"
+4. Completar Postal Code: "12345"
+5. Hacer clic en "Continue"
+
+**Resultado Esperado:**
+- Permanece en el paso 1 del checkout
+- Se muestra mensaje de error: "Error: First Name is required"
+- No se procede al siguiente paso
+
+**Datos de Prueba:**
+- First Name: (vacío)
+- Last Name: Pérez
+- Postal Code: 12345
+
+---
+
+### 📝 TC-021: Checkout Paso 1 - Todos los Campos Vacíos
+**Tipo:** Negativo - Borde
+**Prioridad:** Media
+**Categoría:** Validación
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- Al menos 1 producto en el carrito
+- En la página del carrito
+
+**Pasos:**
+1. Hacer clic en "Checkout"
+2. Dejar todos los campos vacíos
+3. Hacer clic en "Continue"
+
+**Resultado Esperado:**
+- Permanece en el paso 1 del checkout
+- Se muestra mensaje de error para el primer campo requerido
+- No se procede al siguiente paso
+
+**Datos de Prueba:**
+- First Name: (vacío)
+- Last Name: (vacío)
+- Postal Code: (vacío)
+
+---
+
+### 📝 TC-022: Checkout Paso 2 - Revisión del Pedido
+**Tipo:** Positivo
+**Prioridad:** Alta
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- Completado el paso 1 del checkout
+- En el paso 2 del checkout
+
+**Pasos:**
+1. Verificar que se muestren todos los productos del carrito
+2. Verificar precios individuales
+3. Verificar subtotal
+4. Verificar impuestos
+5. Verificar total final
+
+**Resultado Esperado:**
+- Se muestran todos los productos con sus precios
+- Los cálculos son correctos
+- Se muestra información de pago y envío
+- Botones "Cancel" y "Finish" disponibles
+
+**Datos de Prueba:**
+- Verificar: Productos, precios, subtotal, impuestos, total
+
+---
+
+### 📝 TC-023: Checkout Paso 3 - Confirmación de Compra
+**Tipo:** Positivo
+**Prioridad:** Alta
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- Completado el paso 2 del checkout
+- En el paso 2 del checkout
+
+**Pasos:**
+1. Hacer clic en "Finish"
+2. Verificar mensaje de confirmación
+3. Verificar opciones disponibles
+
+**Resultado Esperado:**
+- Se muestra página de confirmación
+- Mensaje: "THANK YOU FOR YOUR ORDER"
+- Botón "Back Home" disponible
+- El pedido se considera completado
+
+**Datos de Prueba:**
+- Página destino: /checkout-complete.html
+- Mensaje esperado: Confirmación de pedido
+
+---
+
+### 📝 TC-024: Checkout - Cancelar en Cualquier Paso
+**Tipo:** Negativo
+**Prioridad:** Media
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- En cualquier paso del checkout
+
+**Pasos:**
+1. Hacer clic en "Cancel"
+2. Verificar redirección
+3. Verificar estado del carrito
+
+**Resultado Esperado:**
+- Se redirige a la página del carrito
+- Los productos permanecen en el carrito
+- No se pierde información
+
+**Datos de Prueba:**
+- Acción: Cancelar checkout
+- Destino: Página del carrito
+
+---
+
+### 📝 TC-025: Checkout - Navegación Entre Pasos
+**Tipo:** Positivo
+**Prioridad:** Media
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- En el paso 2 del checkout
+
+**Pasos:**
+1. Hacer clic en "Cancel" para regresar al carrito
+2. Hacer clic en "Checkout" nuevamente
+3. Verificar si la información se mantiene
+
+**Resultado Esperado:**
+- Se puede navegar entre pasos
+- La información personal se mantiene (según implementación)
+- El flujo es consistente
+
+**Datos de Prueba:**
+- Navegación: Paso 2 → Carrito → Paso 1
+- Verificar: Persistencia de datos
+
+---
+
+## 🧭 SUITE DE PRUEBAS 5: MÓDULO DE NAVEGACIÓN
+
+### 📝 TC-026: Abrir Menú Lateral
+**Tipo:** Positivo
+**Prioridad:** Alta
+**Categoría:** UI
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- En cualquier página después del login
+
+**Pasos:**
+1. Hacer clic en el menú hamburguesa (☰)
+2. Verificar opciones disponibles
+3. Verificar funcionalidad del menú
+
+**Resultado Esperado:**
+- Se despliega el menú lateral
+- Se muestran opciones: All Items, About, Logout, Reset App State
+- Cada opción es clickeable
+- El menú se puede cerrar
+
+**Datos de Prueba:**
+- Opciones esperadas: 4 opciones de menú
+- Funcionalidad: Abrir/cerrar menú
+
+---
+
+### 📝 TC-027: Opción "All Items" - Regreso al Catálogo
+**Tipo:** Positivo
+**Prioridad:** Media
+**Categoría:** Navegación
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- En cualquier página que no sea el inventario
+- Menú lateral abierto
+
+**Pasos:**
+1. Hacer clic en "All Items"
+2. Verificar redirección
+3. Verificar contenido de la página
+
+**Resultado Esperado:**
+- Se redirige a la página de inventario
+- Se muestra el catálogo completo de productos
+- El menú se cierra automáticamente
+
+**Datos de Prueba:**
+- Opción: All Items
+- Destino: /inventory.html
+
+---
+
+### 📝 TC-028: Opción "About" - Enlace Externo
+**Tipo:** Positivo
+**Prioridad:** Baja
+**Categoría:** Navegación
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- En cualquier página después del login
+- Menú lateral abierto
+
+**Pasos:**
+1. Hacer clic en "About"
+2. Verificar que se abre enlace externo
+3. Verificar contenido de la página externa
+
+**Resultado Esperado:**
+- Se abre una nueva pestaña o ventana
+- Se muestra información sobre SauceLabs
+- La aplicación original permanece abierta
+
+**Datos de Prueba:**
+- Opción: About
+- Destino: Página externa de SauceLabs
+
+---
+
+### 📝 TC-029: Opción "Reset App State" - Limpiar Estado
+**Tipo:** Positivo
+**Prioridad:** Media
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- Al menos 2 productos en el carrito
+- Menú lateral abierto
+
+**Pasos:**
+1. Hacer clic en "Reset App State"
+2. Verificar estado del carrito
+3. Verificar estado de los productos
+
+**Resultado Esperado:**
+- El carrito se vacía completamente
+- El contador del carrito desaparece o muestra 0
+- Todos los productos vuelven a mostrar "Add to cart"
+- El menú se cierra
+
+**Datos de Prueba:**
+- Estado inicial: Carrito con productos
+- Estado final: Carrito vacío, productos reseteados
+
+---
+
+### 📝 TC-030: Logout - Cerrar Sesión
+**Tipo:** Positivo
+**Prioridad:** Alta
+**Categoría:** Seguridad
+
+**Precondiciones:**
+- Usuario logueado como standard_user
+- En cualquier página después del login
+- Menú lateral abierto
+
+**Pasos:**
+1. Hacer clic en "Logout"
+2. Verificar redirección
+3. Intentar acceder a páginas protegidas
+
+**Resultado Esperado:**
+- Se redirige a la página de login
+- La sesión se cierra completamente
+- No se puede acceder a páginas protegidas sin login
+- El carrito se limpia
+
+**Datos de Prueba:**
+- Opción: Logout
+- Destino: Página de login
+- Verificar: Protección de páginas
+
+---
+
+### 📝 TC-031: Navegación Directa Sin Login
+**Tipo:** Negativo
+**Prioridad:** Alta
+**Categoría:** Seguridad
+
+**Precondiciones:**
+- Usuario no logueado
+- Navegador abierto
+
+**Pasos:**
+1. Intentar acceder directamente a /inventory.html
+2. Intentar acceder directamente a /cart.html
+3. Intentar acceder directamente a /checkout-step-one.html
+
+**Resultado Esperado:**
+- Se redirige automáticamente a la página de login
+- No se puede acceder a páginas protegidas
+- Se debe realizar login para acceder
+
+**Datos de Prueba:**
+- URLs protegidas: /inventory.html, /cart.html, /checkout-*
+- Comportamiento: Redirección forzada a login
+
+---
+
+## 👥 SUITE DE PRUEBAS 6: USUARIOS ESPECIALES
+
+### 📝 TC-032: Problem User - Identificar Problemas Visuales
+**Tipo:** Especial
+**Prioridad:** Media
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Usuario logueado como problem_user
+- En la página de inventario
+
+**Pasos:**
+1. Revisar la visualización de productos
+2. Verificar imágenes de productos
+3. Probar funcionalidades básicas
+4. Documentar anomalías encontradas
+
+**Resultado Esperado:**
+- Se identifican problemas específicos en la interfaz
+- Las imágenes pueden no cargar correctamente
+- Algunos elementos pueden verse distorsionados
+- La funcionalidad básica sigue funcionando
+
+**Datos de Prueba:**
+- Usuario: problem_user
+- Objetivo: Identificar problemas visuales específicos
+
+---
+
+### 📝 TC-033: Performance Glitch User - Medir Rendimiento
+**Tipo:** Especial
+**Prioridad:** Media
+**Categoría:** Rendimiento
+
+**Precondiciones:**
+- Usuario logueado como performance_glitch_user
+- En la página de inventario
+
+**Pasos:**
+1. Medir tiempo de carga de la página
+2. Medir tiempo de respuesta al hacer clic en botones
+3. Completar flujo de compra midiendo tiempos
+4. Comparar con standard_user
+
+**Resultado Esperado:**
+- Los tiempos de respuesta son notablemente más lentos
+- Las funcionalidades siguen siendo correctas
+- Se pueden identificar cuellos de botella
+- El flujo completo es posible pero lento
+
+**Datos de Prueba:**
+- Usuario: performance_glitch_user
+- Métricas: Tiempos de respuesta, carga de página
+
+---
+
+### 📝 TC-034: Comparación Entre Tipos de Usuario
+**Tipo:** Comparativo
+**Prioridad:** Baja
+**Categoría:** Funcional
+
+**Precondiciones:**
+- Acceso a todos los tipos de usuario
+- Casos de prueba documentados
+
+**Pasos:**
+1. Ejecutar el mismo caso de prueba con standard_user
+2. Ejecutar el mismo caso de prueba con problem_user
+3. Ejecutar el mismo caso de prueba con performance_glitch_user
+4. Comparar resultados
+
+**Resultado Esperado:**
+- standard_user: Funcionalidad normal
+- problem_user: Problemas visuales específicos
+- performance_glitch_user: Funcionalidad lenta
+- locked_out_user: Sin acceso
+
+**Datos de Prueba:**
+- Usuarios: Todos los tipos disponibles
+- Caso base: Agregar producto al carrito
+
+---
+
+## 📱 SUITE DE PRUEBAS 7: COMPATIBILIDAD Y RESPONSIVE
+
+### 📝 TC-035: Compatibilidad en Chrome
+**Tipo:** Compatibilidad
+**Prioridad:** Alta
+**Categoría:** Navegador
+
+**Precondiciones:**
+- Google Chrome actualizado
+- Resolución 1920x1080
+
+**Pasos:**
+1. Abrir SauceDemo en Chrome
+2. Ejecutar casos de prueba críticos
+3. Verificar funcionalidad completa
+4. Documentar cualquier problema
+
+**Resultado Esperado:**
+- Todas las funcionalidades trabajan correctamente
+- La interfaz se ve correctamente
+- No hay errores de consola críticos
+- El rendimiento es adecuado
+
+**Datos de Prueba:**
+- Navegador: Google Chrome
+- Resolución: 1920x1080
+- Casos: Login, catálogo, carrito, checkout
+
+---
+
+### 📝 TC-036: Compatibilidad en Firefox
+**Tipo:** Compatibilidad
+**Prioridad:** Alta
+**Categoría:** Navegador
+
+**Precondiciones:**
+- Mozilla Firefox actualizado
+- Resolución 1920x1080
+
+**Pasos:**
+1. Abrir SauceDemo en Firefox
+2. Ejecutar casos de prueba críticos
+3. Verificar funcionalidad completa
+4. Documentar cualquier problema
+
+**Resultado Esperado:**
+- Todas las funcionalidades trabajan correctamente
+- La interfaz se ve correctamente
+- No hay errores de consola críticos
+- El rendimiento es adecuado
+
+**Datos de Prueba:**
+- Navegador: Mozilla Firefox
+- Resolución: 1920x1080
+- Casos: Login, catálogo, carrito, checkout
+
+---
+
+### 📝 TC-037: Responsive Design - Dispositivo Móvil
+**Tipo:** Responsive
+**Prioridad:** Media
+**Categoría:** UI/UX
+
+**Precondiciones:**
+- Navegador con herramientas de desarrollo
+- Emulación de dispositivo móvil (375x667)
+
+**Pasos:**
+1. Cambiar a vista móvil
+2. Verificar adaptación de elementos
+3. Probar funcionalidades principales
+4. Verificar usabilidad touch
+
+**Resultado Esperado:**
+- Los elementos se adaptan al tamaño de pantalla
+- La navegación es intuitiva en touch
+- Todas las funcionalidades están disponibles
+- El texto es legible
+
+**Datos de Prueba:**
+- Resolución: 375x667 (iPhone SE)
+- Funcionalidades: Login, navegación, carrito
+
+---
+
+### 📝 TC-038: Responsive Design - Tablet
+**Tipo:** Responsive
+**Prioridad:** Media
+**Categoría:** UI/UX
+
+**Precondiciones:**
+- Navegador con herramientas de desarrollo
+- Emulación de tablet (768x1024)
+
+**Pasos:**
+1. Cambiar a vista tablet
+2. Verificar adaptación de elementos
+3. Probar funcionalidades principales
+4. Verificar usabilidad touch
+
+**Resultado Esperado:**
+- Los elementos se adaptan al tamaño de pantalla
+- La navegación es intuitiva
+- Todas las funcionalidades están disponibles
+- El layout es apropiado para tablet
+
+**Datos de Prueba:**
+- Resolución: 768x1024 (iPad)
+- Funcionalidades: Catálogo, carrito, checkout
+
+---
+
+## 🔍 SUITE DE PRUEBAS 8: CASOS DE BORDE Y EXTREMOS
+
+### 📝 TC-039: Caracteres Especiales en Login
+**Tipo:** Borde
+**Prioridad:** Baja
+**Categoría:** Validación
+
+**Precondiciones:**
+- Navegador abierto
+- Página de login cargada
+
+**Pasos:**
+1. Ingresar caracteres especiales en Username: "!@#$%^&*()"
+2. Ingresar caracteres especiales en Password: "!@#$%^&*()"
+3. Hacer clic en "Login"
+
+**Resultado Esperado:**
+- Se maneja apropiadamente la entrada de caracteres especiales
+- Se muestra mensaje de error apropiado
+- No se produce error del sistema
+
+**Datos de Prueba:**
+- Caracteres especiales: !@#$%^&*()
+- Comportamiento esperado: Manejo seguro de entrada
+
+---
+
+### 📝 TC-040: Campos Extremadamente Largos
+**Tipo:** Borde
+**Prioridad:** Baja
+**Categoría:** Validación
+
+**Precondiciones:**
+- Usuario logueado
+- En el paso 1 del checkout
+
+**Pasos:**
+1. Ingresar texto de 1000 caracteres en First Name
+2. Ingresar texto de 1000 caracteres en Last Name
+3. Ingresar texto de 1000 caracteres en Postal Code
+4. Hacer clic en "Continue"
+
+**Resultado Esperado:**
+- Los campos manejan apropiadamente texto largo
+- Se aplican límites de caracteres si existen
+- No se produce error del sistema
+- Se valida apropiadamente
+
+**Datos de Prueba:**
+- Longitud: 1000 caracteres por campo
+- Texto: Cadena repetitiva de prueba
+
+---
+
+### 📝 TC-041: Múltiples Ventanas/Pestañas
+**Tipo:** Borde
+**Prioridad:** Media
+**Categoría:** Sesión
+
+**Precondiciones:**
+- Usuario logueado en una pestaña
+- Productos en el carrito
+
+**Pasos:**
+1. Abrir nueva pestaña/ventana
+2. Navegar a SauceDemo
+3. Verificar estado de la sesión
+4. Realizar acciones en ambas pestañas
+
+**Resultado Esperado:**
+- La sesión se mantiene consistente
+- Los cambios se sincronizan entre pestañas
+- No se producen conflictos de estado
+
+**Datos de Prueba:**
+- Pestañas: 2 simultáneas
+- Acciones: Modificar carrito en ambas
+
+---
+
+### 📝 TC-042: Recarga de Página con Carrito
+**Tipo:** Borde
+**Prioridad:** Media
+**Categoría:** Persistencia
+
+**Precondiciones:**
+- Usuario logueado
+- 3 productos en el carrito
+
+**Pasos:**
+1. Verificar productos en el carrito
+2. Recargar la página (F5)
+3. Verificar estado del carrito
+
+**Resultado Esperado:**
+- Los productos permanecen en el carrito
+- El contador se mantiene correcto
+- La sesión continúa activa
+
+**Datos de Prueba:**
+- Productos iniciales: 3
+- Acción: Recarga de página
+- Productos esperados: 3
+
+---
+
+## 📊 RESUMEN DE COBERTURA
+
+### Distribución de Casos por Tipo:
+- **Positivos:** 22 casos (52%)
+- **Negativos:** 12 casos (29%)
+- **Borde:** 8 casos (19%)
+
+### Distribución por Prioridad:
+- **Alta:** 18 casos (43%)
+- **Media:** 18 casos (43%)
+- **Baja:** 6 casos (14%)
+
+### Distribución por Categoría:
+- **Funcional:** 24 casos (57%)
+- **Validación:** 8 casos (19%)
+- **UI/UX:** 4 casos (10%)
+- **Seguridad:** 2 casos (5%)
+- **Compatibilidad:** 4 casos (9%)
+
+### Cobertura de Requisitos:
+- ✅ **Autenticación:** 100% cubierto
+- ✅ **Catálogo:** 100% cubierto
+- ✅ **Carrito:** 100% cubierto
+- ✅ **Checkout:** 100% cubierto
+- ✅ **Navegación:** 100% cubierto
+- ✅ **Usuarios especiales:** 100% cubierto
+- ✅ **Compatibilidad:** 100% cubierto
+
+---
+
+## 📋 MATRIZ DE TRAZABILIDAD
+
+| Requisito | Casos de Prueba | Cobertura |
+|-----------|----------------|-----------|
+| Login con credenciales válidas | TC-001, TC-006, TC-007 | ✅ |
+| Validación de credenciales | TC-002, TC-003, TC-004, TC-005 | ✅ |
+| Control de acceso | TC-031, TC-030 | ✅ |
+| Visualización de productos | TC-008 | ✅ |
+| Ordenamiento de productos | TC-009, TC-010, TC-011, TC-012 | ✅ |
+| Gestión de carrito | TC-013, TC-014, TC-015, TC-016, TC-017, TC-018 | ✅ |
+| Proceso de checkout | TC-019, TC-020, TC-021, TC-022, TC-023, TC-024, TC-025 | ✅ |
+| Navegación y menú | TC-026, TC-027, TC-028, TC-029, TC-030 | ✅ |
+| Usuarios especiales | TC-032, TC-033, TC-034 | ✅ |
+| Compatibilidad | TC-035, TC-036, TC-037, TC-038 | ✅ |
+
+---
+
+## 🔧 DATOS DE PRUEBA CONSOLIDADOS
+
+### Usuarios de Prueba:
+- **standard_user** / secret_sauce (usuario normal)
+- **locked_out_user** / secret_sauce (usuario bloqueado)
+- **problem_user** / secret_sauce (usuario con problemas)
+- **performance_glitch_user** / secret_sauce (usuario lento)
+
+### Productos de Prueba:
+- Sauce Labs Backpack ($29.99)
+- Sauce Labs Bike Light ($9.99)
+- Sauce Labs Bolt T-Shirt ($15.99)
+- Sauce Labs Fleece Jacket ($49.99)
+- Sauce Labs Onesie ($7.99)
+- Test.allTheThings() T-Shirt (Red) ($15.99)
+
+### Información de Checkout:
+- First Name: Juan, María, Carlos
+- Last Name: Pérez, González, López
+- Postal Code: 12345, 67890, 11111
+
+---
+
+## ✅ CRITERIOS DE ACEPTACIÓN PARA EJECUCIÓN
+
+### Criterios de Entrada:
+- Aplicación disponible y funcional
+- Entorno de pruebas configurado
+- Datos de prueba preparados
+- Casos de prueba revisados y aprobados
+
+### Criterios de Salida:
+- 100% de casos críticos ejecutados
+- 90% de casos de alta prioridad ejecutados
+- 0 defectos críticos abiertos
+- Reporte de cobertura completo
+
+### Criterios de Suspensión:
+- Aplicación no disponible por más de 2 horas
+- Más del 30% de casos críticos fallando
+- Defectos críticos que bloquean la ejecución
+
+---
+
+**Preparado por:** Equipo de QA
+**Revisado por:** Test Lead
+**Aprobado por:** QA Manager
+
+**Fecha:** Julio 2025
+**Versión:** 1.0

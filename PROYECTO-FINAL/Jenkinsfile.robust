@@ -1,0 +1,129 @@
+pipeline {
+    agent any
+    
+    tools {
+        nodejs "NodeJS"
+    }
+    
+    environment {
+        CYPRESS_CACHE_FOLDER = "/opt/cypress-cache"
+        HOME = "/tmp"
+        CI = "true"
+        DEBUG = "cypress:*"
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out code...'
+                // For local development, the code is already mounted
+                sh 'ls -la /workspace/cypress-project'
+            }
+        }
+        
+        stage('Install Dependencies') {
+            steps {
+                dir('/workspace/cypress-project') {
+                    echo 'Installing Node.js dependencies...'
+                    sh 'npm ci --verbose || npm install --verbose'
+                }
+            }
+        }
+        
+        stage('Install Cypress Binary') {
+            steps {
+                dir('/workspace/cypress-project') {
+                    echo 'Installing/Verifying Cypress binary...'
+                    script {
+                        // Try to install Cypress binary
+                        def installResult = sh(script: 'npx cypress install', returnStatus: true)
+                        if (installResult != 0) {
+                            echo 'Cypress install failed, trying alternative approach...'
+                            sh 'CYPRESS_INSTALL_BINARY=0 npm install cypress'
+                            sh 'npx cypress install --force'
+                        }
+                    }
+                }
+            }
+        }
+        
+        stage('Verify Cypress') {
+            steps {
+                dir('/workspace/cypress-project') {
+                    echo 'Verifying Cypress installation...'
+                    sh 'npx cypress verify'
+                    sh 'npx cypress info'
+                    sh 'npx cypress version'
+                }
+            }
+        }
+        
+        stage('Run Cypress Tests') {
+            steps {
+                dir('/workspace/cypress-project') {
+                    echo 'Running Cypress tests...'
+                    script {
+                        // Try different browsers in order of preference
+                        def browsers = ['electron', 'chrome', 'firefox']
+                        def success = false
+                        
+                        for (browser in browsers) {
+                            if (!success) {
+                                try {
+                                    echo "Trying to run tests with ${browser}..."
+                                    sh "npx cypress run --headless --browser ${browser}"
+                                    success = true
+                                    echo "Tests completed successfully with ${browser}!"
+                                } catch (Exception e) {
+                                    echo "Failed with ${browser}: ${e.message}"
+                                }
+                            }
+                        }
+                        
+                        if (!success) {
+                            error("All browser attempts failed")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            dir('/workspace/cypress-project') {
+                // Archive test results
+                script {
+                    if (fileExists('cypress/screenshots')) {
+                        archiveArtifacts artifacts: 'cypress/screenshots/**/*.png', fingerprint: true, allowEmptyArchive: true
+                        echo 'Screenshots archived'
+                    }
+                    if (fileExists('cypress/videos')) {
+                        archiveArtifacts artifacts: 'cypress/videos/**/*.mp4', fingerprint: true, allowEmptyArchive: true
+                        echo 'Videos archived'
+                    }
+                    if (fileExists('cypress/reports')) {
+                        archiveArtifacts artifacts: 'cypress/reports/**/*', fingerprint: true, allowEmptyArchive: true
+                        echo 'Reports archived'
+                    }
+                }
+                
+                // Clean up workspace to avoid permission issues
+                sh 'chmod -R 777 . || true'
+                
+                // Show some debug info
+                sh 'echo "=== Debug Info ==="'
+                sh 'node --version || true'
+                sh 'npm --version || true'
+                sh 'npx cypress version || true'
+                sh 'ls -la cypress/ || true'
+            }
+        }
+        success {
+            echo 'All tests passed successfully! 🎉'
+        }
+        failure {
+            echo 'Some tests failed. Check the console output and archived artifacts for details. 💥'
+        }
+    }
+}

@@ -1,0 +1,14 @@
+# Essential Jenkins plugins for Node.js and pipeline support
+nodejs
+workflow-aggregator
+git
+github
+pipeline-stage-view
+build-timeout
+credentials-binding
+timestamper
+ws-cleanup
+ant
+gradle
+workflow-support
+htmlpublisher

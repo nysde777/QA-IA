@@ -1,0 +1,110 @@
+Claro. La página [https://www.saucedemo.com/](https://www.saucedemo.com/) es una **demo de una tienda en línea** usada comúnmente para pruebas de automatización (por ejemplo, con Selenium). A continuación te detallo los **requisitos funcionales y no funcionales** de:
+
+---
+
+## 🟢 1. **Requisitos de la Página de Login**
+
+### 🔹 Requisitos Funcionales
+
+1. **Formulario de Autenticación:**
+
+   * Debe tener un campo de **usuario** (`Username`) y **contraseña** (`Password`).
+   * Botón para **iniciar sesión** (`Login`).
+   * Opción para recuperar cuenta no disponible (el sitio es una demo, no lo permite).
+
+2. **Validación de Usuario:**
+
+   * Si el usuario o contraseña son incorrectos, debe mostrar un mensaje de error.
+   * Solo permite iniciar sesión con usuarios predefinidos como:
+
+     * `standard_user`
+     * `locked_out_user`
+     * `problem_user`
+     * `performance_glitch_user`
+     * Contraseña para todos: `secret_sauce`
+
+3. **Control de Acceso:**
+
+   * No se puede acceder a la tienda si no has iniciado sesión correctamente.
+
+---
+
+### 🔹 Requisitos No Funcionales
+
+1. **Interfaz Sencilla:**
+
+   * Página simple, rápida de cargar.
+   * Compatible con navegadores modernos.
+
+2. **Seguridad (limitada):**
+
+   * No hay HTTPS forzado en navegación posterior.
+   * El sitio es **público y de prueba**, por lo tanto, **no tiene seguridad real** implementada.
+
+3. **Compatibilidad:**
+
+   * Funciona en desktop y mobile.
+
+---
+
+## 🟢 2. **Requisitos Después del Login (Tienda en Línea)**
+
+### 🔹 Requisitos Funcionales
+
+1. **Catálogo de Productos:**
+
+   * Visualización de productos con:
+
+     * Imagen
+     * Nombre
+     * Descripción
+     * Precio
+     * Botón de "Add to cart" o "Remove"
+
+2. **Carrito de Compras:**
+
+   * Icono en la parte superior derecha con contador de productos añadidos.
+   * Al hacer clic lleva al resumen del carrito.
+
+3. **Checkout (Proceso de Compra):**
+
+   * Paso 1: Información del cliente (Nombre, Apellido, Código Postal)
+   * Paso 2: Revisión del pedido
+   * Paso 3: Confirmación de compra
+
+4. **Opciones de Ordenamiento:**
+
+   * Por precio, nombre (A-Z, Z-A), etc.
+
+5. **Navegación:**
+
+   * Menú lateral con opciones como:
+
+     * Logout
+     * Reset App State
+     * All Items
+     * About (enlace externo)
+
+6. **Logout:**
+
+   * Posibilidad de cerrar sesión desde el menú lateral.
+
+---
+
+### 🔹 Requisitos No Funcionales
+
+1. **Simulación de Comercio Electrónico:**
+
+   * No realiza compras reales, todo es de prueba.
+
+2. **Velocidad y Simplicidad:**
+
+   * El flujo está diseñado para pruebas automatizadas, por lo tanto es rápido y simple.
+
+3. **Interfaz Estática:**
+
+   * No hay funciones dinámicas complejas como recomendaciones, comentarios o historial de compras.
+
+---
+
+¿Te gustaría que convierta esto en un documento de requisitos formal (tipo SRS) o en formato tabla para presentación o desarrollo?

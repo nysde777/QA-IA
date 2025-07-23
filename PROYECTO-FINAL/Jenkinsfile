@@ -1,0 +1,81 @@
+pipeline {
+    agent any
+    
+    tools {
+        nodejs "NodeJS"
+    }
+    
+    environment {
+        CYPRESS_CACHE_FOLDER = "/opt/cypress-cache"
+        HOME = "/tmp"
+        CYPRESS_RUN_BINARY = "/opt/cypress-cache/14.5.2/Cypress/Cypress"
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out code...'
+                // If using Git, uncomment the following:
+                // git branch: 'main', url: 'your-repository-url'
+                
+                // For local development, the code is already mounted
+                sh 'ls -la /workspace/cypress-project'
+            }
+        }
+        
+        stage('Install Dependencies') {
+            steps {
+                dir('/workspace/cypress-project') {
+                    echo 'Installing Node.js dependencies...'
+                    sh 'npm install --verbose'
+                    echo 'Installing Cypress binary...'
+                    sh 'npx cypress install'
+                }
+            }
+        }
+        
+        stage('Verify Cypress') {
+            steps {
+                dir('/workspace/cypress-project') {
+                    echo 'Verifying Cypress installation...'
+                    sh 'npx cypress verify'
+                    sh 'npx cypress info'
+                }
+            }
+        }
+        
+        stage('Run Cypress Tests') {
+            steps {
+                dir('/workspace/cypress-project') {
+                    echo 'Running Cypress tests...'
+                    sh 'npx cypress run --headless --browser electron'
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            dir('/workspace/cypress-project') {
+                // Archive test results
+                script {
+                    if (fileExists('cypress/screenshots')) {
+                        archiveArtifacts artifacts: 'cypress/screenshots/**/*.png', fingerprint: true, allowEmptyArchive: true
+                    }
+                    if (fileExists('cypress/videos')) {
+                        archiveArtifacts artifacts: 'cypress/videos/**/*.mp4', fingerprint: true, allowEmptyArchive: true
+                    }
+                }
+                
+                // Clean up workspace to avoid permission issues
+                sh 'chmod -R 777 . || true'
+            }
+        }
+        success {
+            echo 'All tests passed successfully!'
+        }
+        failure {
+            echo 'Some tests failed. Check the reports for details.'
+        }
+    }
+}

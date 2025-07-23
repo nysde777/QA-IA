@@ -1,0 +1,63 @@
+{
+  "timestamp": "2025-07-22T15:17:43.600Z",
+  "totalTests": 6,
+  "totalPassed": 2,
+  "totalFailed": 4,
+  "totalPending": 0,
+  "totalSkipped": 0,
+  "totalDuration": 11437,
+  "runs": [
+    {
+      "spec": "cypress\\e2e\\saucedemo-complete-flow.cy.js",
+      "stats": {
+        "duration": 11437,
+        "endedAt": "2025-07-22T15:17:43.579Z",
+        "failures": 4,
+        "passes": 2,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T15:17:32.142Z",
+        "suites": 1,
+        "tests": 6
+      },
+      "tests": [
+        {
+          "title": "SauceDemo - Flujo completo de compra > a.1 Test de login",
+          "state": "passed",
+          "duration": 2243,
+          "error": null
+        },
+        {
+          "title": "SauceDemo - Flujo completo de compra > a.2 Agregar un producto al carrito",
+          "state": "failed",
+          "duration": 1438,
+          "error": null
+        },
+        {
+          "title": "SauceDemo - Flujo completo de compra > a.3 Test de checkout",
+          "state": "failed",
+          "duration": 1073,
+          "error": null
+        },
+        {
+          "title": "SauceDemo - Flujo completo de compra > a.4 Test llenar el Checkout: Your Information",
+          "state": "failed",
+          "duration": 1199,
+          "error": null
+        },
+        {
+          "title": "SauceDemo - Flujo completo de compra > a.5 Test Finalizar compra Checkout: Overview",
+          "state": "failed",
+          "duration": 1916,
+          "error": null
+        },
+        {
+          "title": "SauceDemo - Flujo completo de compra > Flujo completo de compra - E2E",
+          "state": "passed",
+          "duration": 1851,
+          "error": null
+        }
+      ]
+    }
+  ]
+}

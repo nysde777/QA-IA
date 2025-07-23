@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte QA + IA - Análisis de Pruebas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .stats-bar {
+            background: #ecf0f1;
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            margin: 10px;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title .icon {
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+        
+        .risk-card {
+            background: #fff;
+            border-left: 5px solid #e74c3c;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .risk-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .risk-card.high {
+            border-left-color: #e74c3c;
+        }
+        
+        .risk-card.medium {
+            border-left-color: #f39c12;
+        }
+        
+        .risk-card.low {
+            border-left-color: #27ae60;
+        }
+        
+        .test-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .risk-score {
+            background: #e74c3c;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .risk-score.medium {
+            background: #f39c12;
+        }
+        
+        .risk-score.low {
+            background: #27ae60;
+        }
+        
+        .factors-list, .actions-list {
+            margin: 10px 0;
+        }
+        
+        .factors-list ul, .actions-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .factors-list li, .actions-list li {
+            background: #ecf0f1;
+            margin: 5px 0;
+            padding: 8px 15px;
+            border-radius: 5px;
+            position: relative;
+            padding-left: 35px;
+        }
+        
+        .factors-list li:before {
+            content: "⚠️";
+            position: absolute;
+            left: 10px;
+        }
+        
+        .actions-list li:before {
+            content: "💡";
+            position: absolute;
+            left: 10px;
+        }
+        
+        .prediction-card {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .prediction-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .prediction-metric {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .suggestion-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .suggestion-priority {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .priority-alta {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .priority-media {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+        
+        .priority-baja {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+        
+        .trends-box {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-bar {
+                flex-direction: column;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Reporte QA + IA</h1>
+            <div class="subtitle">Análisis Inteligente de Pruebas Automatizadas</div>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">1</div>
+                <div class="stat-label">Logs Analizados</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Tests Alto Riesgo</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Nuevas Pruebas Sugeridas</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">22/07/2025 10:57:23</div>
+                <div class="stat-label">Fecha de Análisis</div>
+            </div>
+        </div>
+        
+        <div class="content">
+
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="icon">🔥</span>
+                    Tests de Alto Riesgo
+                </h2>
+
+                <div class="risk-card high">
+                    <div class="test-name">SauceDemo - Flujo completo de compra > a.2 Agregar un producto al carrito</div>
+                    <div class="risk-score">8.5/10</div>
+                    
+                    <div class="factors-list">
+                        <h4>Factores de Riesgo:</h4>
+                        <ul>
+                            <li>Frecuencia de fallas</li>
+                            <li>Criticidad del flujo de negocio</li>
+                            <li>Tiempo de duración de las pruebas</li>
+
+                        </ul>
+                    </div>
+                    
+                    <div class="actions-list">
+                        <h4>Acciones Recomendadas:</h4>
+                        <ul>
+                            <li>Investigar el error desconocido</li>
+                            <li>Revisar el flujo de compra</li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="risk-card high">
+                    <div class="test-name">SauceDemo - Flujo completo de compra > a.3 Test de checkout</div>
+                    <div class="risk-score">8.5/10</div>
+                    
+                    <div class="factors-list">
+                        <h4>Factores de Riesgo:</h4>
+                        <ul>
+                            <li>Frecuencia de fallas</li>
+                            <li>Criticidad del flujo de negocio</li>
+                            <li>Tiempo de duración de las pruebas</li>
+
+                        </ul>
+                    </div>
+                    
+                    <div class="actions-list">
+                        <h4>Acciones Recomendadas:</h4>
+                        <ul>
+                            <li>Investigar el error desconocido</li>
+                            <li>Revisar el flujo de checkout</li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="risk-card high">
+                    <div class="test-name">SauceDemo - Flujo completo de compra > a.4 Test llenar el Checkout: Your Information</div>
+                    <div class="risk-score">8.5/10</div>
+                    
+                    <div class="factors-list">
+                        <h4>Factores de Riesgo:</h4>
+                        <ul>
+                            <li>Frecuencia de fallas</li>
+                            <li>Criticidad del flujo de negocio</li>
+                            <li>Tiempo de duración de las pruebas</li>
+
+                        </ul>
+                    </div>
+                    
+                    <div class="actions-list">
+                        <h4>Acciones Recomendadas:</h4>
+                        <ul>
+                            <li>Investigar el error desconocido</li>
+                            <li>Revisar el llenado de información de checkout</li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="risk-card high">
+                    <div class="test-name">SauceDemo - Flujo completo de compra > a.5 Test Finalizar compra Checkout: Overview</div>
+                    <div class="risk-score">8.5/10</div>
+                    
+                    <div class="factors-list">
+                        <h4>Factores de Riesgo:</h4>
+                        <ul>
+                            <li>Frecuencia de fallas</li>
+                            <li>Criticidad del flujo de negocio</li>
+                            <li>Tiempo de duración de las pruebas</li>
+
+                        </ul>
+                    </div>
+                    
+                    <div class="actions-list">
+                        <h4>Acciones Recomendadas:</h4>
+                        <ul>
+                            <li>Investigar el error desconocido</li>
+                            <li>Revisar el flujo de finalización de compra</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="icon">📈</span>
+                    Tendencias y Patrones
+                </h2>
+                
+                <div class="trends-box">
+                    <h3>📊 Patrones de Fallas</h3>
+                    <p>Todos los errores son desconocidos y ocurren en el flujo de compra, es posible que haya un problema en este flujo.</p>
+                    
+                    <h3>🎯 Tendencia de Estabilidad</h3>
+                    <p>Estado: <strong>EMPEORANDO</strong></p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="icon">🔮</span>
+                    Análisis Predictivo
+                </h2>
+
+                <div class="prediction-card">
+                    <div class="prediction-title">📊 Predicciones de Rendimiento</div>
+                    
+                    <div class="prediction-metric">
+                        <span>Tasa de fallas esperada:</span>
+                        <strong>3.1%</strong>
+                    </div>
+                    
+                    <div class="prediction-metric">
+                        <span>Tendencia de duración:</span>
+                        <strong>estable</strong>
+                    </div>
+                    
+                    <div class="prediction-metric">
+                        <span>Pronóstico de estabilidad:</span>
+                        <strong>Se espera una estabilidad moderada con posibles fallas ocasionales en el flujo completo de compra</strong>
+                    </div>
+                </div>
+
+                <h3>⚠️ Áreas de Riesgo Futuro</h3>
+
+                <div class="suggestion-card">
+                    <h4>SauceDemo - Flujo completo de compra</h4>
+                    <p><strong>Probabilidad de riesgo:</strong> 85%</p>
+                    <p><strong>Impacto:</strong> ALTO</p>
+                    
+                    <h5>Tests Sugeridos:</h5>
+                    <ul>
+                        <li>Test de agregar varios productos al carrito</li>
+                        <li>Test de checkout con diferentes tipos de pago</li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="icon">🤖</span>
+                    Nuevas Pruebas Automatizadas Sugeridas
+                </h2>
+
+                <div class="suggestion-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <h4>Prueba de carga</h4>
+                        <span class="suggestion-priority priority-alta">alta</span>
+                    </div>
+                    
+                    <p><strong>Escenario:</strong> Agregar varios productos al carrito y verificar la capacidad de manejo de carga del sistema</p>
+                    <p><strong>Valor Esperado:</strong> El sistema debería ser capaz de manejar la adición de varios productos al carrito sin fallas</p>
+                </div>
+
+                <div class="suggestion-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <h4>Prueba de seguridad</h4>
+                        <span class="suggestion-priority priority-media">media</span>
+                    </div>
+                    
+                    <p><strong>Escenario:</strong> Realizar un checkout con diferentes tipos de pago y verificar la seguridad de las transacciones</p>
+                    <p><strong>Valor Esperado:</strong> Las transacciones deben ser seguras y los datos del usuario deben estar protegidos</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="icon">💡</span>
+                    Recomendaciones de Optimización
+                </h2>
+                
+                <div class="suggestion-card">
+                    <ul style="list-style-type: none; padding: 0;">
+
+                        <li style="margin: 10px 0; padding: 10px; background: #f1f3f4; border-radius: 5px;">
+                            <span style="margin-right: 10px;">✅</span>Investigar el error desconocido en el flujo de compra
+                        </li>
+
+                        <li style="margin: 10px 0; padding: 10px; background: #f1f3f4; border-radius: 5px;">
+                            <span style="margin-right: 10px;">✅</span>Revisar y mejorar la estabilidad del flujo de compra
+                        </li>
+
+                        <li style="margin: 10px 0; padding: 10px; background: #f1f3f4; border-radius: 5px;">
+                            <span style="margin-right: 10px;">✅</span>Optimizar el flujo completo de compra para reducir la tasa de fallos
+                        </li>
+
+                        <li style="margin: 10px 0; padding: 10px; background: #f1f3f4; border-radius: 5px;">
+                            <span style="margin-right: 10px;">✅</span>Implementar pruebas de carga y seguridad para mejorar la robustez del sistema
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="footer">
+            <p>📄 Reporte generado desde: <strong>gpt_analysis_20250722_105723.json</strong></p>
+            <p>🤖 Análisis powered by GPT-4 | 🔬 QA Automation</p>
+        </div>
+    </div>
+</body>
+</html>

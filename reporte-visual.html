@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte Visual</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .error {
+            color: red;
+        }
+        .suggestion {
+            color: green;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reporte Visual</h1>
+
+    <div class="section">
+        <h2>Reporte de Defectos</h2>
+        <table>
+            <tr>
+                <th>Defecto</th>
+                <th>Descripción</th>
+                <th>Severidad</th>
+                <th>Prioridad</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td>Fallo al ingresar con contraseña que contiene caracteres especiales</td>
+                <td>El usuario no puede iniciar sesión utilizando una contraseña que incluye caracteres especiales.</td>
+                <td>Alta</td>
+                <td>Alta</td>
+                <td>Revisar la lógica de validación de contraseñas.</td>
+            </tr>
+            <tr>
+                <td>Error 500 tras iniciar sesión</td>
+                <td>Después de iniciar sesión, el usuario es redirigido a una página con un error interno del servidor.</td>
+                <td>Crítica</td>
+                <td>Alta</td>
+                <td>Revisar los registros del servidor para identificar la causa raíz.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Reporte de Logs</h2>
+        <table>
+            <tr>
+                <th>Error</th>
+                <th>Causa Posible</th>
+                <th>Sugerencia</th>
+            </tr>
+            <tr>
+                <td class="error">El sistema falló porque el servidor perdió la conexión</td>
+                <td>Problemas de red, tiempos de espera, fallos en el servidor o configuraciones incorrectas.</td>
+                <td class="suggestion">Implementar monitoreo de red y reintentos automáticos.</td>
+            </tr>
+            <tr>
+                <td class="error">El sistema falló porque se terminó el espacio disponible en disco</td>
+                <td>Falta de gestión del espacio en disco o acumulación de archivos temporales.</td>
+                <td class="suggestion">Establecer políticas de limpieza periódica y alertas de uso de disco.</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

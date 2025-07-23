@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA Manual y Automatización con IA - Temario</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .course-info {
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .course-info h2 {
+            color: #495057;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .course-info p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #6c757d;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #667eea;
+        }
+
+        .info-card h3 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-card li {
+            padding: 8px 0;
+            color: #6c757d;
+            font-size: 1.05em;
+            line-height: 1.5;
+        }
+
+        .info-card li::before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .accordion {
+            padding: 30px;
+        }
+
+        .accordion h2 {
+            text-align: center;
+            color: #495057;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .accordion-item {
+            margin-bottom: 15px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .accordion-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.3em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+        }
+
+        .accordion-header.completed {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+        }
+
+        .accordion-icon {
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            background: white;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 2000px;
+            padding: 30px 25px;
+        }
+
+        .lesson {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .lesson:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+        }
+
+        .lesson-header {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .lesson-header:hover {
+            background: #e9ecef;
+        }
+
+        .lesson-header.active {
+            background: #667eea;
+            color: white;
+            border-left-color: #495057;
+        }
+
+        .lesson-header.completed {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+
+        .lesson-header.completed.active {
+            background: #28a745;
+            color: white;
+        }
+
+        .lesson-header h4 {
+            margin: 0;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: inherit;
+        }
+
+        .lesson-icon {
+            font-size: 1em;
+            transition: transform 0.3s ease;
+        }
+
+        .lesson.active .lesson-icon {
+            transform: rotate(180deg);
+        }
+
+        .lesson-content {
+            background: white;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .lesson.active .lesson-content {
+            max-height: 500px;
+            padding: 20px;
+        }
+
+        .lesson-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .lesson-content li {
+            padding: 8px 0;
+            color: #6c757d;
+            font-size: 1.05em;
+            line-height: 1.6;
+            margin-left: 20px;
+        }
+
+        .lesson-content li::before {
+            content: "▶";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+            margin-left: -20px;
+        }
+
+        .exercise {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .exercise h5 {
+            color: #1565c0;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .exercise p {
+            color: #1976d2;
+            font-size: 1.05em;
+            line-height: 1.5;
+        }
+
+        .completed-badge {
+            background: #28a745;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+
+        .lesson-status {
+            font-size: 0.9em;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+
+        .lesson-status.completed {
+            background: #28a745;
+            color: white;
+        }
+
+        .lesson-status.current {
+            background: #ffc107;
+            color: #212529;
+        }
+
+        .status-toggle {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 0.8em;
+            cursor: pointer;
+            margin-left: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .status-toggle:hover {
+            background: #5a6268;
+            transform: scale(1.05);
+        }
+
+        .status-toggle.completed {
+            background: #dc3545;
+        }
+
+        .status-toggle.completed:hover {
+            background: #c82333;
+        }
+
+        .module-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Modal de presentación */
+        .presentation-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            z-index: 1000;
+            color: white;
+            overflow: hidden;
+        }
+
+        .presentation-modal.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-header {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+
+        .close-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .modal-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 40px 120px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .modal-subtitle {
+            font-size: 1.5em;
+            opacity: 0.9;
+            margin-bottom: 50px;
+            max-width: 800px;
+        }
+
+        .modal-points {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .modal-points ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal-points li {
+            font-size: 1.3em;
+            margin: 20px 0;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideInUp 0.6s ease forwards;
+        }
+
+        .modal-points li:nth-child(1) { animation-delay: 0.1s; }
+        .modal-points li:nth-child(2) { animation-delay: 0.2s; }
+        .modal-points li:nth-child(3) { animation-delay: 0.3s; }
+        .modal-points li:nth-child(4) { animation-delay: 0.4s; }
+        .modal-points li:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-points li::before {
+            content: "▶";
+            color: #ffc107;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.1em;
+        }
+
+        .modal-navigation {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .nav-btn:disabled:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: none;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .lesson-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lesson-item:hover {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .header p {
+                font-size: 1.1em;
+            }
+            
+            .course-info {
+                padding: 20px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .accordion {
+                padding: 20px;
+            }
+            
+            .accordion-header {
+                font-size: 1.1em;
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>QA Manual y Automatización con Inteligencia Artificial</h1>
+            <p>Domina GitHub Copilot y la API de GPT para revolucionar tu trabajo en QA</p>
+        </div>
+
+        <div class="course-info">
+            <h2>Información del Curso</h2>
+            <p>Este curso está diseñado para profesionales de QA manual y automatización que buscan integrar herramientas de inteligencia artificial como GitHub Copilot y la API de GPT en su flujo de trabajo.</p>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Público Objetivo</h3>
+                    <ul>
+                        <li>Profesionales de QA manual</li>
+                        <li>Especialistas en automatización</li>
+                        <li>Desarrolladores y testers</li>
+                        <li>Entusiastas de la IA en QA</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Requisitos Previos</h3>
+                    <ul>
+                        <li>Conocimientos básicos de QA manual</li>
+                        <li>Familiaridad con algún lenguaje de programación</li>
+                        <li>Cuenta gratuita de GitHub</li>
+                        <li>Acceso a la API de OpenAI</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion" id="accordion-container">
+            <h2>Temario del Curso</h2>
+            <!-- El contenido será generado dinámicamente -->
+        </div>
+    </div>
+
+    <!-- Modal de presentación -->
+    <div id="presentationModal" class="presentation-modal">
+        <div class="modal-header">
+            <button id="closeModal" class="close-btn">✕</button>
+        </div>
+        
+        <div class="progress-indicator">
+            <span id="progressText">Lección 1 de 20</span>
+        </div>
+        
+        <div class="modal-content">
+            <h1 id="modalTitle" class="modal-title">Título de la Lección</h1>
+            <p id="modalSubtitle" class="modal-subtitle">Descripción de la lección</p>
+            <div id="modalPoints" class="modal-points">
+                <!-- Contenido dinámico -->
+            </div>
+        </div>
+        
+        <div class="modal-navigation">
+            <button id="prevBtn" class="nav-btn">← Anterior</button>
+            <button id="nextBtn" class="nav-btn">Siguiente →</button>
+        </div>
+    </div>
+
+    <script>
+        // Datos del temario - aquí puedes actualizar qué elementos tienen checkbox ✅
+        const temarioData = {
+            modules: [
+                {
+                    title: "Módulo 1: Introducción a QA y la Revolución de la IA",
+                    completed: true, // Tiene ✅
+                    lessons: [
+                        {
+                            title: "1.1 Bienvenida al curso",
+                            completed: true, // Tiene ✅
+                            content: [
+                                "Objetivos del curso y visión general",
+                                "¿Por qué la IA es clave para el futuro del QA?"
+                            ]
+                        },
+                        {
+                            title: "1.2 Fundamentos de QA Manual y Automatización",
+                            completed: false, // No tiene ✅
+                            content: [
+                                "Rol del QA manual en el ciclo de desarrollo de software",
+                                "Introducción a la automatización: herramientas comunes (Selenium, Cypress, etc.)",
+                                "Desafíos actuales en QA y cómo la IA puede resolverlos"
+                            ]
+                        },
+                        {
+                            title: "1.3 ¿Cómo la IA está transformando el QA?",
+                            completed: false,
+                            content: [
+                                "Ejemplos reales de IA en QA: automatización inteligente, análisis predictivo, generación de datos",
+                                "Beneficios: mayor eficiencia, reducción de errores humanos, mejora en la cobertura de pruebas"
+                            ]
+                        },
+                        {
+                            title: "1.4 Herramientas de IA para QA",
+                            completed: false,
+                            content: [
+                                "Introducción a GitHub Copilot y la API de GPT",
+                                "Comparación con otras herramientas de IA (Claude, DeepSeek, etc.)"
+                            ]
+                        }
+                    ],
+                    exercise: "Instalar Visual Studio Code y configurar GitHub Copilot"
+                },
+                {
+                    title: "Módulo 2: Configuración del Entorno para IA en QA",
+                    completed: false,
+                    lessons: [
+                        {
+                            title: "2.1 Configuración de GitHub Copilot",
+                            completed: false,
+                            content: [
+                                "Creación de una cuenta en GitHub y activación de Copilot (versión gratuita o de prueba)",
+                                "Integración con Visual Studio Code y otros IDEs"
+                            ]
+                        },
+                        {
+                            title: "2.2 Introducción a la API de GPT",
+                            completed: false,
+                            content: [
+                                "¿Qué es la API de OpenAI y cómo funciona?",
+                                "Creación de una cuenta en OpenAI y obtención de una clave API",
+                                "Configuración de un entorno Python para usar la API"
+                            ]
+                        },
+                        {
+                            title: "2.3 Entorno de trabajo para QA",
+                            completed: false,
+                            content: [
+                                "Configuración de herramientas de QA (Selenium, Postman, etc.)",
+                                "Integración de IA con herramientas de QA existentes"
+                            ]
+                        }
+                    ],
+                    exercise: "Configurar un proyecto en Python con la API de GPT y probar una solicitud simple"
+                },
+                {
+                    title: "Módulo 3: Usando GitHub Copilot para QA Manual y Automatización",
+                    completed: false,
+                    lessons: [
+                        {
+                            title: "3.1 GitHub Copilot como asistente de código",
+                            completed: false,
+                            content: [
+                                "Cómo Copilot autocompleta código para scripts de automatización (Selenium, Cypress, etc.)",
+                                "Generación de scripts de prueba con Copilot"
+                            ]
+                        },
+                        {
+                            title: "3.2 Creación de casos de prueba con Copilot",
+                            completed: false,
+                            content: [
+                                "Cómo escribir casos de prueba efectivos con sugerencias de IA",
+                                "Generación de casos de prueba basados en requisitos funcionales"
+                            ]
+                        },
+                        {
+                            title: "3.3 Depuración y mejora de scripts",
+                            completed: false,
+                            content: [
+                                "Usar Copilot para detectar y corregir errores en scripts de automatización",
+                                "Refactorización de código para mejorar la legibilidad y eficiencia"
+                            ]
+                        },
+                        {
+                            title: "3.4 Generación de datos de prueba",
+                            completed: false,
+                            content: [
+                                "Creación de datos de prueba sintéticos con Copilot",
+                                "Ejemplo: Generar datos para pruebas de formularios o APIs"
+                            ]
+                        }
+                    ],
+                    exercise: "Crear un script de automatización en Selenium con la ayuda de Copilot y generar casos de prueba para una aplicación web"
+                },
+                {
+                    title: "Módulo 4: Usando la API de GPT para QA",
+                    completed: false,
+                    lessons: [
+                        {
+                            title: "4.1 Introducción al Prompt Engineering para QA",
+                            completed: false,
+                            content: [
+                                "¿Qué es el Prompt Engineering y por qué es importante?",
+                                "Cómo formular prompts efectivos para obtener resultados precisos"
+                            ]
+                        },
+                        {
+                            title: "4.2 Generación de casos de prueba con GPT",
+                            completed: false,
+                            content: [
+                                "Crear casos de prueba a partir de historias de usuario o especificaciones",
+                                "Ejemplo: Generar casos de prueba para una aplicación de comercio electrónico"
+                            ]
+                        },
+                        {
+                            title: "4.3 Automatización de reportes de defectos",
+                            completed: false,
+                            content: [
+                                "Usar GPT para redactar descripciones claras y detalladas de defectos",
+                                "Automatizar la generación de reportes para herramientas como Jira o Trello"
+                            ]
+                        },
+                        {
+                            title: "4.4 Análisis de logs y detección de patrones",
+                            completed: false,
+                            content: [
+                                "Usar GPT para analizar logs de aplicaciones y detectar problemas comunes",
+                                "Generación de resúmenes de logs para facilitar el análisis"
+                            ]
+                        }
+                    ],
+                    exercise: "Usar la API de GPT para generar casos de prueba y un reporte de defectos a partir de un escenario proporcionado"
+                },
+                {
+                    title: "Módulo 5: Aplicaciones Avanzadas de IA en QA",
+                    completed: false,
+                    lessons: [
+                        {
+                            title: "5.1 Automatización inteligente de pruebas",
+                            completed: false,
+                            content: [
+                                "Cómo la IA puede priorizar casos de prueba basándose en riesgos",
+                                "Uso de GPT para generar scripts de prueba basados en patrones de fallos históricos"
+                            ]
+                        },
+                        {
+                            title: "5.2 Generación de datos sintéticos avanzados",
+                            completed: false,
+                            content: [
+                                "Crear datos complejos para pruebas de carga o estrés",
+                                "Ejemplo: Generar datos para pruebas de APIs con múltiples parámetros"
+                            ]
+                        },
+                        {
+                            title: "5.3 Integración de IA con herramientas de CI/CD",
+                            completed: false,
+                            content: [
+                                "Cómo integrar scripts generados por Copilot y GPT en pipelines de CI/CD (Jenkins, GitHub Actions)",
+                                "Automatización de pruebas en entornos DevOps"
+                            ]
+                        },
+                        {
+                            title: "5.4 Análisis predictivo para QA",
+                            completed: false,
+                            content: [
+                                "Usar IA para predecir áreas de mayor riesgo en el software",
+                                "Ejemplo: Identificar módulos propensos a defectos basándose en datos históricos"
+                            ]
+                        }
+                    ],
+                    exercise: "Configurar un pipeline en GitHub Actions que ejecute scripts de prueba generados por Copilot y GPT"
+                },
+                {
+                    title: "Módulo 6: Ética y Mejores Prácticas en el Uso de IA para QA",
+                    completed: false,
+                    lessons: [
+                        {
+                            title: "6.1 Consideraciones éticas en el uso de IA",
+                            completed: false,
+                            content: [
+                                "Privacidad de datos al usar la API de GPT",
+                                "Evitar sesgos en la generación de casos de prueba o datos"
+                            ]
+                        },
+                        {
+                            title: "6.2 Mejores prácticas para integrar IA en QA",
+                            completed: false,
+                            content: [
+                                "Cómo validar resultados generados por IA",
+                                "Combinar IA con el juicio humano para mejores resultados"
+                            ]
+                        },
+                        {
+                            title: "6.3 Limitaciones de la IA en QA",
+                            completed: false,
+                            content: [
+                                "Casos en los que la IA no es adecuada",
+                                "Cómo manejar errores o respuestas incorrectas de Copilot o GPT"
+                            ]
+                        }
+                    ],
+                    exercise: "Revisar y corregir un caso de prueba generado por IA para asegurar su calidad"
+                },
+                {
+                    title: "Módulo 7: Proyecto Final",
+                    completed: false,
+                    lessons: [
+                        {
+                            title: "7.1 Proyecto: Automatización de un caso real de QA",
+                            completed: false,
+                            content: [
+                                "Escenario: Automatizar pruebas para una aplicación web o API real",
+                                "Crear casos de prueba con GitHub Copilot",
+                                "Generar un script de automatización en Selenium o Cypress",
+                                "Usar la API de GPT para generar reportes de defectos y analizar logs",
+                                "Integrar el script en un pipeline de CI/CD"
+                            ]
+                        },
+                        {
+                            title: "7.2 Presentación y revisión del proyecto",
+                            completed: false,
+                            content: [
+                                "Guía para presentar los resultados del proyecto",
+                                "Retroalimentación para mejorar las habilidades aprendidas"
+                            ]
+                        },
+                        {
+                            title: "7.3 Recursos adicionales",
+                            completed: false,
+                            content: [
+                                "Enlaces a documentación de Copilot, OpenAI, y herramientas de QA",
+                                "Comunidad de soporte y foros para seguir aprendiendo"
+                            ]
+                        }
+                    ],
+                    exercise: null
+                }
+            ]
+        };
+
+        // Función para generar el HTML del temario
+        function generateAccordion() {
+            const container = document.getElementById('accordion-container');
+            let html = '<h2>Temario del Curso</h2>';
+
+            temarioData.modules.forEach((module, moduleIndex) => {
+                const moduleCompletedClass = module.completed ? 'completed' : '';
+                const moduleCompletedBadge = module.completed ? '<span class="completed-badge">✓ Completado</span>' : '';
+
+                html += `
+                    <div class="accordion-item">
+                        <div class="accordion-header ${moduleCompletedClass}">
+                            <span>${module.title} ${moduleCompletedBadge}</span>
+                            <div class="module-controls">
+                                <button class="status-toggle ${module.completed ? 'completed' : ''}" 
+                                        onclick="toggleModuleCompletion(${moduleIndex})">
+                                    ${module.completed ? 'Desmarcar' : 'Completar'}
+                                </button>
+                                <span class="accordion-icon">▼</span>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                `;
+
+                module.lessons.forEach((lesson, lessonIndex) => {
+                    const lessonCompletedClass = lesson.completed ? 'completed' : '';
+                    const lessonCompletedBadge = lesson.completed ? '<span class="lesson-status completed">✓</span>' : '';
+
+                    html += `
+                        <div class="lesson lesson-item" onclick="openLessonPresentation(${moduleIndex}, ${lessonIndex})">
+                            <div class="lesson-header ${lessonCompletedClass}">
+                                <h4>${lesson.title} ${lessonCompletedBadge}</h4>
+                                <div class="module-controls">
+                                    <button class="status-toggle ${lesson.completed ? 'completed' : ''}" 
+                                            onclick="event.stopPropagation(); toggleLessonCompletion(${moduleIndex}, ${lessonIndex})">
+                                        ${lesson.completed ? 'Desmarcar' : 'Completar'}
+                                    </button>
+                                    <span class="lesson-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="lesson-content">
+                                <ul>
+                    `;
+
+                    lesson.content.forEach(item => {
+                        html += `<li>${item}</li>`;
+                    });
+
+                    html += `
+                                </ul>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                if (module.exercise) {
+                    html += `
+                        <div class="exercise">
+                            <h5>Ejercicio Práctico</h5>
+                            <p>${module.exercise}</p>
+                        </div>
+                    `;
+                }
+
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // Función para manejar la interacción de los acordeones
+        function setupAccordionHandlers() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            const lessonHeaders = document.querySelectorAll('.lesson-header');
+            
+            // Manejador para los acordeones principales (módulos)
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function(e) {
+                    // No abrir/cerrar si se clickea un botón
+                    if (e.target.classList.contains('status-toggle')) {
+                        return;
+                    }
+                    
+                    const accordionItem = this.parentElement;
+                    const isActive = accordionItem.classList.contains('active');
+                    
+                    // Cerrar todos los acordeones principales
+                    document.querySelectorAll('.accordion-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Cerrar todas las lecciones
+                    document.querySelectorAll('.lesson').forEach(lesson => {
+                        lesson.classList.remove('active');
+                    });
+                    
+                    // Abrir el acordeón clickeado si no estaba activo
+                    if (!isActive) {
+                        accordionItem.classList.add('active');
+                    }
+                });
+            });
+            
+            // Manejador para los acordeones de lecciones
+            lessonHeaders.forEach(header => {
+                header.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Evitar que se propague al acordeón padre
+                    
+                    // No abrir/cerrar si se clickea un botón
+                    if (e.target.classList.contains('status-toggle')) {
+                        return;
+                    }
+                    
+                    const lessonItem = this.parentElement;
+                    const isActive = lessonItem.classList.contains('active');
+                    
+                    // Cerrar todas las lecciones del mismo módulo
+                    const currentModule = lessonItem.closest('.accordion-item');
+                    currentModule.querySelectorAll('.lesson').forEach(lesson => {
+                        lesson.classList.remove('active');
+                    });
+                    
+                    // Quitar estado activo de todos los headers de lecciones
+                    document.querySelectorAll('.lesson-header').forEach(h => {
+                        h.classList.remove('active');
+                    });
+                    
+                    // Abrir la lección clickeada si no estaba activa
+                    if (!isActive) {
+                        lessonItem.classList.add('active');
+                        this.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Inicializar cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function() {
+            generateAccordion();
+            setupAccordionHandlers();
+            setupPresentationModal();
+        });
+
+        // Variables globales para la presentación
+        let currentLessonIndex = 0;
+        let allLessons = [];
+
+        // Función para configurar el modal de presentación
+        function setupPresentationModal() {
+            // Crear array plano de todas las lecciones
+            allLessons = [];
+            temarioData.modules.forEach((module, moduleIndex) => {
+                module.lessons.forEach((lesson, lessonIndex) => {
+                    allLessons.push({
+                        moduleIndex: moduleIndex,
+                        lessonIndex: lessonIndex,
+                        moduleTitle: module.title,
+                        lesson: lesson
+                    });
+                });
+            });
+
+            // Event listeners para el modal
+            document.getElementById('closeModal').addEventListener('click', closePresentationModal);
+            document.getElementById('prevBtn').addEventListener('click', showPreviousLesson);
+            document.getElementById('nextBtn').addEventListener('click', showNextLesson);
+
+            // Cerrar modal con ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closePresentationModal();
+                }
+                if (e.key === 'ArrowLeft') {
+                    showPreviousLesson();
+                }
+                if (e.key === 'ArrowRight') {
+                    showNextLesson();
+                }
+            });
+        }
+
+        // Función para abrir la presentación de una lección
+        function openLessonPresentation(moduleIndex, lessonIndex) {
+            // Encontrar el índice global de la lección
+            currentLessonIndex = allLessons.findIndex(item => 
+                item.moduleIndex === moduleIndex && item.lessonIndex === lessonIndex
+            );
+            
+            showLessonPresentation(currentLessonIndex);
+            document.getElementById('presentationModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevenir scroll del body
+        }
+
+        // Función para mostrar una lección en el modal
+        function showLessonPresentation(globalIndex) {
+            if (globalIndex < 0 || globalIndex >= allLessons.length) return;
+
+            const lessonData = allLessons[globalIndex];
+            const modal = document.getElementById('presentationModal');
+            
+            // Actualizar contenido
+            document.getElementById('modalTitle').textContent = lessonData.lesson.title;
+            document.getElementById('modalSubtitle').textContent = lessonData.moduleTitle;
+            document.getElementById('progressText').textContent = `Lección ${globalIndex + 1} de ${allLessons.length}`;
+            
+            // Crear puntos de contenido
+            const pointsContainer = document.getElementById('modalPoints');
+            pointsContainer.innerHTML = '<ul></ul>';
+            const ul = pointsContainer.querySelector('ul');
+            
+            lessonData.lesson.content.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                ul.appendChild(li);
+            });
+
+            // Actualizar botones de navegación
+            document.getElementById('prevBtn').disabled = globalIndex === 0;
+            document.getElementById('nextBtn').disabled = globalIndex === allLessons.length - 1;
+
+            // Trigger animaciones
+            setTimeout(() => {
+                const listItems = pointsContainer.querySelectorAll('li');
+                listItems.forEach((li, index) => {
+                    li.style.animationDelay = `${(index + 1) * 0.1}s`;
+                });
+            }, 100);
+        }
+
+        // Función para mostrar la lección anterior
+        function showPreviousLesson() {
+            if (currentLessonIndex > 0) {
+                currentLessonIndex--;
+                showLessonPresentation(currentLessonIndex);
+            }
+        }
+
+        // Función para mostrar la siguiente lección
+        function showNextLesson() {
+            if (currentLessonIndex < allLessons.length - 1) {
+                currentLessonIndex++;
+                showLessonPresentation(currentLessonIndex);
+            }
+        }
+
+        // Función para cerrar el modal de presentación
+        function closePresentationModal() {
+            document.getElementById('presentationModal').classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restaurar scroll del body
+        }
+
+        // Función para actualizar el estado de completado de un módulo o lección
+        function updateCompletionStatus(moduleIndex, lessonIndex = null, completed = true) {
+            // Guardar el estado actual de los acordeones abiertos
+            const openModules = [];
+            const openLessons = [];
+            
+            document.querySelectorAll('.accordion-item.active').forEach((item, index) => {
+                const moduleIdx = Array.from(item.parentElement.children).indexOf(item) - 1; // -1 porque el h2 es el primer hijo
+                openModules.push(moduleIdx);
+                
+                // Guardar lecciones abiertas de este módulo
+                item.querySelectorAll('.lesson.active').forEach(lesson => {
+                    const lessonIdx = Array.from(lesson.parentElement.children).indexOf(lesson);
+                    openLessons.push({module: moduleIdx, lesson: lessonIdx});
+                });
+            });
+            
+            if (lessonIndex === null) {
+                // Actualizar módulo
+                temarioData.modules[moduleIndex].completed = completed;
+            } else {
+                // Actualizar lección
+                temarioData.modules[moduleIndex].lessons[lessonIndex].completed = completed;
+            }
+            
+            // Regenerar el acordeón
+            generateAccordion();
+            setupAccordionHandlers();
+            
+            // Restaurar el estado de los acordeones abiertos
+            setTimeout(() => {
+                openModules.forEach(moduleIdx => {
+                    const accordionItems = document.querySelectorAll('.accordion-item');
+                    if (accordionItems[moduleIdx]) {
+                        accordionItems[moduleIdx].classList.add('active');
+                    }
+                });
+                
+                openLessons.forEach(({module, lesson}) => {
+                    const accordionItems = document.querySelectorAll('.accordion-item');
+                    if (accordionItems[module]) {
+                        const lessons = accordionItems[module].querySelectorAll('.lesson');
+                        if (lessons[lesson]) {
+                            lessons[lesson].classList.add('active');
+                            lessons[lesson].querySelector('.lesson-header').classList.add('active');
+                        }
+                    }
+                });
+            }, 10);
+        }
+
+        // Función para alternar el estado de completado de un módulo
+        function toggleModuleCompletion(moduleIndex) {
+            const module = temarioData.modules[moduleIndex];
+            updateCompletionStatus(moduleIndex, null, !module.completed);
+        }
+
+        // Función para alternar el estado de completado de una lección
+        function toggleLessonCompletion(moduleIndex, lessonIndex) {
+            const lesson = temarioData.modules[moduleIndex].lessons[lessonIndex];
+            updateCompletionStatus(moduleIndex, lessonIndex, !lesson.completed);
+        }
+
+        // Función para marcar todo un módulo como completado
+        function completeEntireModule(moduleIndex) {
+            // Guardar el estado actual de los acordeones abiertos
+            const openModules = [];
+            const openLessons = [];
+            
+            document.querySelectorAll('.accordion-item.active').forEach((item, index) => {
+                const moduleIdx = Array.from(item.parentElement.children).indexOf(item) - 1;
+                openModules.push(moduleIdx);
+                
+                item.querySelectorAll('.lesson.active').forEach(lesson => {
+                    const lessonIdx = Array.from(lesson.parentElement.children).indexOf(lesson);
+                    openLessons.push({module: moduleIdx, lesson: lessonIdx});
+                });
+            });
+            
+            const module = temarioData.modules[moduleIndex];
+            
+            // Marcar el módulo como completado
+            module.completed = true;
+            
+            // Marcar todas las lecciones como completadas
+            module.lessons.forEach(lesson => {
+                lesson.completed = true;
+            });
+            
+            // Regenerar el acordeón
+            generateAccordion();
+            setupAccordionHandlers();
+            
+            // Restaurar el estado de los acordeones abiertos
+            setTimeout(() => {
+                openModules.forEach(moduleIdx => {
+                    const accordionItems = document.querySelectorAll('.accordion-item');
+                    if (accordionItems[moduleIdx]) {
+                        accordionItems[moduleIdx].classList.add('active');
+                    }
+                });
+                
+                openLessons.forEach(({module, lesson}) => {
+                    const accordionItems = document.querySelectorAll('.accordion-item');
+                    if (accordionItems[module]) {
+                        const lessons = accordionItems[module].querySelectorAll('.lesson');
+                        if (lessons[lesson]) {
+                            lessons[lesson].classList.add('active');
+                            lessons[lesson].querySelector('.lesson-header').classList.add('active');
+                        }
+                    }
+                });
+            }, 10);
+        }
+
+        // Función para desmarcar todo un módulo
+        function resetEntireModule(moduleIndex) {
+            // Guardar el estado actual de los acordeones abiertos
+            const openModules = [];
+            const openLessons = [];
+            
+            document.querySelectorAll('.accordion-item.active').forEach((item, index) => {
+                const moduleIdx = Array.from(item.parentElement.children).indexOf(item) - 1;
+                openModules.push(moduleIdx);
+                
+                item.querySelectorAll('.lesson.active').forEach(lesson => {
+                    const lessonIdx = Array.from(lesson.parentElement.children).indexOf(lesson);
+                    openLessons.push({module: moduleIdx, lesson: lessonIdx});
+                });
+            });
+            
+            const module = temarioData.modules[moduleIndex];
+            
+            // Desmarcar el módulo
+            module.completed = false;
+            
+            // Desmarcar todas las lecciones
+            module.lessons.forEach(lesson => {
+                lesson.completed = false;
+            });
+            
+            // Regenerar el acordeón
+            generateAccordion();
+            setupAccordionHandlers();
+            
+            // Restaurar el estado de los acordeones abiertos
+            setTimeout(() => {
+                openModules.forEach(moduleIdx => {
+                    const accordionItems = document.querySelectorAll('.accordion-item');
+                    if (accordionItems[moduleIdx]) {
+                        accordionItems[moduleIdx].classList.add('active');
+                    }
+                });
+                
+                openLessons.forEach(({module, lesson}) => {
+                    const accordionItems = document.querySelectorAll('.accordion-item');
+                    if (accordionItems[module]) {
+                        const lessons = accordionItems[module].querySelectorAll('.lesson');
+                        if (lessons[lesson]) {
+                            lessons[lesson].classList.add('active');
+                            lessons[lesson].querySelector('.lesson-header').classList.add('active');
+                        }
+                    }
+                });
+            }, 10);
+        }
+
+        // Ejemplo de uso para marcar como completado:
+        // updateCompletionStatus(0, 0, true); // Marcar lección 1.1 como completada
+        // updateCompletionStatus(0, null, true); // Marcar módulo 1 como completado
+        // toggleModuleCompletion(0); // Alternar estado del módulo 1
+        // toggleLessonCompletion(0, 0); // Alternar estado de la lección 1.1
+        // completeEntireModule(0); // Completar todo el módulo 1
+        // resetEntireModule(0); // Resetear todo el módulo 1
+    </script>
+</body>
+</html>

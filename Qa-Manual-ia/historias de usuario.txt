@@ -1,0 +1,462 @@
+# HISTORIAS DE USUARIO - SAUCEDEMO
+## User Stories for E-commerce Demo Application
+
+---
+
+## 📋 INFORMACIÓN GENERAL
+
+**Producto:** SauceDemo - Demo de tienda en línea
+**URL:** https://www.saucedemo.com/
+**Objetivo:** Definir funcionalidades desde la perspectiva del usuario
+**Fecha:** Julio 2025
+
+---
+
+## 👥 PERSONAS/ROLES
+
+- **Usuario Estándar:** Persona que usa la aplicación para realizar compras de prueba
+- **Usuario de Pruebas:** Tester que utiliza la aplicación para validar funcionalidades
+- **Administrador:** Persona que gestiona el estado de la aplicación
+
+---
+
+## 🔐 ÉPICA 1: AUTENTICACIÓN Y ACCESO
+
+### 📝 HU-001: Iniciar Sesión Exitosamente
+**Como** usuario estándar  
+**Quiero** poder iniciar sesión con credenciales válidas  
+**Para** acceder a la tienda en línea y realizar compras  
+
+**Criterios de Aceptación:**
+- ✅ Dado que estoy en la página de login
+- ✅ Cuando ingreso un usuario válido (standard_user, problem_user, performance_glitch_user)
+- ✅ Y ingreso la contraseña correcta (secret_sauce)
+- ✅ Y hago clic en el botón "Login"
+- ✅ Entonces soy redirigido a la página del catálogo de productos
+- ✅ Y puedo ver todos los productos disponibles
+
+**Definición de Terminado:**
+- Login funcional con usuarios válidos
+- Redirección correcta después del login
+- Acceso completo a funcionalidades de la tienda
+
+---
+
+### 📝 HU-002: Manejo de Credenciales Incorrectas
+**Como** usuario estándar  
+**Quiero** recibir un mensaje de error claro cuando ingreso credenciales incorrectas  
+**Para** entender qué está mal y poder corregirlo  
+
+**Criterios de Aceptación:**
+- ✅ Dado que estoy en la página de login
+- ✅ Cuando ingreso credenciales incorrectas
+- ✅ Entonces veo un mensaje de error específico
+- ✅ Y permanezco en la página de login
+- ✅ Y no tengo acceso a la tienda
+
+**Definición de Terminado:**
+- Mensajes de error claros y específicos
+- Validación de campos funcional
+- Prevención de acceso no autorizado
+
+---
+
+### 📝 HU-003: Restricción de Usuario Bloqueado
+**Como** administrador del sistema  
+**Quiero** que los usuarios bloqueados no puedan acceder  
+**Para** mantener el control de acceso según las políticas  
+
+**Criterios de Aceptación:**
+- ✅ Dado que soy un usuario bloqueado (locked_out_user)
+- ✅ Cuando intento iniciar sesión con credenciales correctas
+- ✅ Entonces veo un mensaje indicando que mi usuario está bloqueado
+- ✅ Y no puedo acceder a la tienda
+- ✅ Y no se me redirige a ninguna otra página
+
+**Definición de Terminado:**
+- Usuario locked_out_user efectivamente bloqueado
+- Mensaje de error específico para usuario bloqueado
+- Prevención total de acceso
+
+---
+
+## 🛍️ ÉPICA 2: CATÁLOGO Y PRODUCTOS
+
+### 📝 HU-004: Visualizar Catálogo de Productos
+**Como** usuario autenticado  
+**Quiero** ver un catálogo completo de productos  
+**Para** conocer qué productos están disponibles para comprar  
+
+**Criterios de Aceptación:**
+- ✅ Dado que he iniciado sesión exitosamente
+- ✅ Cuando accedo al catálogo de productos
+- ✅ Entonces puedo ver todos los productos disponibles
+- ✅ Y cada producto muestra: imagen, nombre, descripción, precio
+- ✅ Y cada producto tiene un botón "Add to cart"
+
+**Definición de Terminado:**
+- Catálogo completo visible
+- Información completa de cada producto
+- Interfaz clara y funcional
+
+---
+
+### 📝 HU-005: Ordenar Productos
+**Como** usuario autenticado  
+**Quiero** poder ordenar los productos por diferentes criterios  
+**Para** encontrar más fácilmente lo que busco  
+
+**Criterios de Aceptación:**
+- ✅ Dado que estoy en el catálogo de productos
+- ✅ Cuando selecciono una opción de ordenamiento
+- ✅ Entonces los productos se reorganizan según el criterio seleccionado
+- ✅ Y puedo ordenar por: Nombre (A-Z), Nombre (Z-A), Precio (bajo a alto), Precio (alto a bajo)
+- ✅ Y el ordenamiento se aplica inmediatamente
+
+**Definición de Terminado:**
+- Todas las opciones de ordenamiento funcionan correctamente
+- Ordenamiento se aplica en tiempo real
+- Interfaz intuitiva para seleccionar criterios
+
+---
+
+## 🛒 ÉPICA 3: CARRITO DE COMPRAS
+
+### 📝 HU-006: Agregar Productos al Carrito
+**Como** usuario autenticado  
+**Quiero** poder agregar productos a mi carrito  
+**Para** seleccionar los items que deseo comprar  
+
+**Criterios de Aceptación:**
+- ✅ Dado que estoy viendo el catálogo de productos
+- ✅ Cuando hago clic en "Add to cart" de un producto
+- ✅ Entonces el producto se agrega a mi carrito
+- ✅ Y el contador del carrito se incrementa
+- ✅ Y el botón cambia a "Remove"
+- ✅ Y puedo ver el producto en el resumen del carrito
+
+**Definición de Terminado:**
+- Funcionalidad "Add to cart" operativa
+- Contador de carrito actualizado en tiempo real
+- Cambio de estado del botón correcto
+
+---
+
+### 📝 HU-007: Remover Productos del Carrito
+**Como** usuario autenticado  
+**Quiero** poder quitar productos de mi carrito  
+**Para** ajustar mi selección antes de comprar  
+
+**Criterios de Aceptación:**
+- ✅ Dado que tengo productos en mi carrito
+- ✅ Cuando hago clic en "Remove" de un producto
+- ✅ Entonces el producto se elimina de mi carrito
+- ✅ Y el contador del carrito se decrementa
+- ✅ Y el botón cambia a "Add to cart"
+- ✅ Y el producto desaparece del resumen del carrito
+
+**Definición de Terminado:**
+- Funcionalidad "Remove" operativa
+- Actualización correcta del contador
+- Sincronización entre catálogo y carrito
+
+---
+
+### 📝 HU-008: Visualizar Resumen del Carrito
+**Como** usuario autenticado  
+**Quiero** ver un resumen de los productos en mi carrito  
+**Para** revisar mi selección antes de proceder al checkout  
+
+**Criterios de Aceptación:**
+- ✅ Dado que tengo productos en mi carrito
+- ✅ Cuando hago clic en el icono del carrito
+- ✅ Entonces veo un resumen de todos los productos seleccionados
+- ✅ Y puedo ver: nombre, descripción, precio de cada producto
+- ✅ Y puedo modificar cantidades o remover productos
+- ✅ Y veo el precio total de mi selección
+
+**Definición de Terminado:**
+- Resumen completo y detallado del carrito
+- Funcionalidad de edición desde el resumen
+- Cálculo correcto de totales
+
+---
+
+## 💳 ÉPICA 4: PROCESO DE CHECKOUT
+
+### 📝 HU-009: Proporcionar Información Personal
+**Como** usuario autenticado  
+**Quiero** ingresar mi información personal para el checkout  
+**Para** completar el proceso de compra  
+
+**Criterios de Aceptación:**
+- ✅ Dado que tengo productos en mi carrito
+- ✅ Cuando inicio el proceso de checkout
+- ✅ Entonces puedo ingresar mi información personal
+- ✅ Y los campos requeridos son: First Name, Last Name, Postal Code
+- ✅ Y no puedo continuar sin completar campos obligatorios
+- ✅ Y recibo validación si faltan campos
+
+**Definición de Terminado:**
+- Formulario de información personal funcional
+- Validación de campos obligatorios
+- Mensajes de error claros
+
+---
+
+### 📝 HU-010: Revisar Pedido
+**Como** usuario autenticado  
+**Quiero** revisar mi pedido antes de confirmarlo  
+**Para** asegurarme de que todo está correcto  
+
+**Criterios de Aceptación:**
+- ✅ Dado que he completado mi información personal
+- ✅ Cuando paso al siguiente paso del checkout
+- ✅ Entonces puedo ver un resumen completo de mi pedido
+- ✅ Y veo: productos, precios, impuestos, total
+- ✅ Y puedo regresar a modificar información si es necesario
+- ✅ Y veo toda la información de envío
+
+**Definición de Terminado:**
+- Resumen completo del pedido
+- Cálculos correctos de precios y totales
+- Navegación fluida entre pasos
+
+---
+
+### 📝 HU-011: Confirmar Compra
+**Como** usuario autenticado  
+**Quiero** confirmar mi compra  
+**Para** completar el proceso de pedido  
+
+**Criterios de Aceptación:**
+- ✅ Dado que he revisado mi pedido
+- ✅ Cuando hago clic en "Finish"
+- ✅ Entonces veo una confirmación de que mi pedido fue completado
+- ✅ Y se muestra un mensaje de éxito
+- ✅ Y puedo regresar al catálogo para una nueva compra
+
+**Definición de Terminado:**
+- Confirmación exitosa de compra
+- Mensaje de éxito claro
+- Opción para continuar comprando
+
+---
+
+## 🧭 ÉPICA 5: NAVEGACIÓN Y CONTROL
+
+### 📝 HU-012: Acceder al Menú Lateral
+**Como** usuario autenticado  
+**Quiero** acceder a un menú de navegación  
+**Para** utilizar diferentes opciones de la aplicación  
+
+**Criterios de Aceptación:**
+- ✅ Dado que estoy en cualquier página después del login
+- ✅ Cuando hago clic en el menú hamburguesa
+- ✅ Entonces se despliega un menú lateral
+- ✅ Y puedo ver las opciones: All Items, About, Logout, Reset App State
+- ✅ Y puedo seleccionar cualquier opción
+
+**Definición de Terminado:**
+- Menú lateral accesible desde todas las páginas
+- Todas las opciones visibles y funcionales
+- Interfaz intuitiva
+
+---
+
+### 📝 HU-013: Reiniciar Estado de la Aplicación
+**Como** usuario de pruebas  
+**Quiero** poder reiniciar el estado de la aplicación  
+**Para** comenzar una nueva sesión de pruebas desde cero  
+
+**Criterios de Aceptación:**
+- ✅ Dado que he realizado acciones en la aplicación
+- ✅ Cuando selecciono "Reset App State" del menú
+- ✅ Entonces mi carrito se vacía completamente
+- ✅ Y todos los productos vuelven a mostrar "Add to cart"
+- ✅ Y el contador del carrito se resetea a 0
+
+**Definición de Terminado:**
+- Reset completo del estado de la aplicación
+- Carrito completamente vacío
+- Productos en estado inicial
+
+---
+
+### 📝 HU-014: Cerrar Sesión
+**Como** usuario autenticado  
+**Quiero** poder cerrar mi sesión  
+**Para** salir de la aplicación de forma segura  
+
+**Criterios de Aceptación:**
+- ✅ Dado que tengo una sesión activa
+- ✅ Cuando selecciono "Logout" del menú
+- ✅ Entonces mi sesión se cierra
+- ✅ Y soy redirigido a la página de login
+- ✅ Y no puedo acceder a páginas protegidas sin iniciar sesión nuevamente
+
+**Definición de Terminado:**
+- Logout funcional desde el menú
+- Redirección correcta a login
+- Protección de páginas después del logout
+
+---
+
+### 📝 HU-015: Acceder a Información Adicional
+**Como** usuario curioso  
+**Quiero** acceder a información adicional sobre la aplicación  
+**Para** conocer más detalles sobre el sitio  
+
+**Criterios de Aceptación:**
+- ✅ Dado que estoy en el menú lateral
+- ✅ Cuando selecciono "About"
+- ✅ Entonces se abre una página externa con información
+- ✅ Y puedo leer información sobre SauceLabs
+- ✅ Y puedo regresar a la aplicación
+
+**Definición de Terminado:**
+- Enlace "About" funcional
+- Apertura correcta de página externa
+- Información relevante disponible
+
+---
+
+## 🔧 ÉPICA 6: EXPERIENCIAS DE USUARIO ESPECIALES
+
+### 📝 HU-016: Experiencia de Usuario con Problemas
+**Como** usuario de pruebas  
+**Quiero** experimentar problemas específicos en la interfaz  
+**Para** validar el manejo de errores y problemas visuales  
+
+**Criterios de Aceptación:**
+- ✅ Dado que inicio sesión con "problem_user"
+- ✅ Cuando navego por la aplicación
+- ✅ Entonces encuentro problemas específicos en la interfaz
+- ✅ Y las imágenes pueden no cargar correctamente
+- ✅ Y algunos elementos pueden comportarse de manera inesperada
+
+**Definición de Terminado:**
+- Problemas específicos reproducibles
+- Comportamiento consistente del problem_user
+- Documentación de problemas identificados
+
+---
+
+### 📝 HU-017: Experiencia de Usuario con Retrasos
+**Como** usuario de pruebas  
+**Quiero** experimentar retrasos en el rendimiento  
+**Para** validar el comportamiento con problemas de performance  
+
+**Criterios de Aceptación:**
+- ✅ Dado que inicio sesión con "performance_glitch_user"
+- ✅ Cuando realizo acciones en la aplicación
+- ✅ Entonces experimento retrasos notables en la respuesta
+- ✅ Y las funcionalidades siguen siendo correctas
+- ✅ Y puedo completar todas las tareas con mayor tiempo
+
+**Definición de Terminado:**
+- Retrasos consistentes y reproducibles
+- Funcionalidad completa a pesar de la lentitud
+- Experiencia diferenciada del usuario estándar
+
+---
+
+## 📱 ÉPICA 7: COMPATIBILIDAD Y ACCESIBILIDAD
+
+### 📝 HU-018: Usar la Aplicación en Dispositivos Móviles
+**Como** usuario móvil  
+**Quiero** poder usar la aplicación en mi dispositivo móvil  
+**Para** hacer compras desde cualquier lugar  
+
+**Criterios de Aceptación:**
+- ✅ Dado que accedo desde un dispositivo móvil
+- ✅ Cuando navego por la aplicación
+- ✅ Entonces todos los elementos se adaptan al tamaño de pantalla
+- ✅ Y puedo realizar todas las funciones principales
+- ✅ Y la experiencia es intuitiva en touch
+
+**Definición de Terminado:**
+- Diseño responsive completamente funcional
+- Todas las funcionalidades disponibles en móvil
+- Experiencia de usuario optimizada
+
+---
+
+### 📝 HU-019: Compatibilidad con Diferentes Navegadores
+**Como** usuario diverso  
+**Quiero** poder usar la aplicación en diferentes navegadores  
+**Para** no estar limitado a un navegador específico  
+
+**Criterios de Aceptación:**
+- ✅ Dado que accedo desde diferentes navegadores
+- ✅ Cuando uso Chrome, Firefox, Safari o Edge
+- ✅ Entonces la aplicación funciona correctamente
+- ✅ Y todas las funcionalidades están disponibles
+- ✅ Y la experiencia visual es consistente
+
+**Definición de Terminado:**
+- Compatibilidad verificada en navegadores principales
+- Funcionalidad completa en todos los navegadores
+- Experiencia visual consistente
+
+---
+
+## 📊 MÉTRICAS DE ACEPTACIÓN
+
+### Criterios de Prioridad:
+- **Alta:** HU-001, HU-004, HU-006, HU-009, HU-014
+- **Media:** HU-002, HU-005, HU-007, HU-008, HU-010, HU-011, HU-012
+- **Baja:** HU-003, HU-013, HU-015, HU-016, HU-017, HU-018, HU-019
+
+### Estimación de Esfuerzo (Story Points):
+- **HU-001:** 5 SP
+- **HU-002:** 3 SP
+- **HU-003:** 2 SP
+- **HU-004:** 8 SP
+- **HU-005:** 5 SP
+- **HU-006:** 5 SP
+- **HU-007:** 3 SP
+- **HU-008:** 5 SP
+- **HU-009:** 8 SP
+- **HU-010:** 5 SP
+- **HU-011:** 3 SP
+- **HU-012:** 3 SP
+- **HU-013:** 2 SP
+- **HU-014:** 3 SP
+- **HU-015:** 1 SP
+- **HU-016:** 5 SP
+- **HU-017:** 5 SP
+- **HU-018:** 8 SP
+- **HU-019:** 8 SP
+
+**Total:** 95 Story Points
+
+---
+
+## 🎯 DEFINICIÓN DE TERMINADO GENERAL
+
+Para que una historia de usuario se considere terminada debe:
+- ✅ Cumplir todos los criterios de aceptación
+- ✅ Pasar todas las pruebas de funcionalidad
+- ✅ Ser compatible con navegadores principales
+- ✅ Funcionar correctamente en dispositivos móviles
+- ✅ No tener defectos críticos o de alta prioridad
+- ✅ Estar documentada adecuadamente
+
+---
+
+## 👥 STAKEHOLDERS Y APROBACIÓN
+
+**Product Owner:** Responsable de priorización y aceptación
+**Scrum Master:** Facilitador del proceso de desarrollo
+**Development Team:** Implementación de las historias
+**QA Team:** Validación y pruebas de aceptación
+
+---
+
+**Creado por:** Equipo de Producto
+**Revisado por:** Product Owner
+**Aprobado por:** Stakeholders
+
+**Fecha de Creación:** Julio 2025
+**Última Actualización:** Julio 2025

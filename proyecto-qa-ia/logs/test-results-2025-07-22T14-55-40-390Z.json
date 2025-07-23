@@ -1,0 +1,1121 @@
+{
+  "timestamp": "2025-07-22T14:55:40.392Z",
+  "totalTests": 129,
+  "totalPassed": 125,
+  "totalFailed": 4,
+  "totalPending": 0,
+  "totalSkipped": 0,
+  "totalDuration": 102491,
+  "runs": [
+    {
+      "spec": "cypress\\e2e\\saucedemo-complete-flow.cy.js",
+      "stats": {
+        "duration": 12030,
+        "endedAt": "2025-07-22T14:53:43.537Z",
+        "failures": 4,
+        "passes": 2,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:53:31.507Z",
+        "suites": 1,
+        "tests": 6
+      },
+      "tests": [
+        {
+          "title": "SauceDemo - Flujo completo de compra > a.1 Test de login",
+          "state": "passed",
+          "duration": 2300,
+          "error": null
+        },
+        {
+          "title": "SauceDemo - Flujo completo de compra > a.2 Agregar un producto al carrito",
+          "state": "failed",
+          "duration": 1453,
+          "error": null
+        },
+        {
+          "title": "SauceDemo - Flujo completo de compra > a.3 Test de checkout",
+          "state": "failed",
+          "duration": 1399,
+          "error": null
+        },
+        {
+          "title": "SauceDemo - Flujo completo de compra > a.4 Test llenar el Checkout: Your Information",
+          "state": "failed",
+          "duration": 1243,
+          "error": null
+        },
+        {
+          "title": "SauceDemo - Flujo completo de compra > a.5 Test Finalizar compra Checkout: Overview",
+          "state": "failed",
+          "duration": 1948,
+          "error": null
+        },
+        {
+          "title": "SauceDemo - Flujo completo de compra > Flujo completo de compra - E2E",
+          "state": "passed",
+          "duration": 1882,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\1-getting-started\\todo.cy.js",
+      "stats": {
+        "duration": 4957,
+        "endedAt": "2025-07-22T14:53:49.911Z",
+        "failures": 0,
+        "passes": 6,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:53:44.954Z",
+        "suites": 2,
+        "tests": 6
+      },
+      "tests": [
+        {
+          "title": "example to-do app > displays two todo items by default",
+          "state": "passed",
+          "duration": 1194,
+          "error": null
+        },
+        {
+          "title": "example to-do app > can add new todo items",
+          "state": "passed",
+          "duration": 491,
+          "error": null
+        },
+        {
+          "title": "example to-do app > can check off an item as completed",
+          "state": "passed",
+          "duration": 257,
+          "error": null
+        },
+        {
+          "title": "example to-do app > with a checked task > can filter for uncompleted tasks",
+          "state": "passed",
+          "duration": 371,
+          "error": null
+        },
+        {
+          "title": "example to-do app > with a checked task > can filter for completed tasks",
+          "state": "passed",
+          "duration": 374,
+          "error": null
+        },
+        {
+          "title": "example to-do app > with a checked task > can delete all completed tasks",
+          "state": "passed",
+          "duration": 369,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\actions.cy.js",
+      "stats": {
+        "duration": 16033,
+        "endedAt": "2025-07-22T14:54:07.264Z",
+        "failures": 0,
+        "passes": 14,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:53:51.231Z",
+        "suites": 1,
+        "tests": 14
+      },
+      "tests": [
+        {
+          "title": "Actions > .type() - type into a DOM element",
+          "state": "passed",
+          "duration": 4304,
+          "error": null
+        },
+        {
+          "title": "Actions > .focus() - focus on a DOM element",
+          "state": "passed",
+          "duration": 224,
+          "error": null
+        },
+        {
+          "title": "Actions > .blur() - blur off a DOM element",
+          "state": "passed",
+          "duration": 521,
+          "error": null
+        },
+        {
+          "title": "Actions > .clear() - clears an input or textarea element",
+          "state": "passed",
+          "duration": 609,
+          "error": null
+        },
+        {
+          "title": "Actions > .submit() - submit a form",
+          "state": "passed",
+          "duration": 504,
+          "error": null
+        },
+        {
+          "title": "Actions > .click() - click on a DOM element",
+          "state": "passed",
+          "duration": 2111,
+          "error": null
+        },
+        {
+          "title": "Actions > .dblclick() - double click on a DOM element",
+          "state": "passed",
+          "duration": 294,
+          "error": null
+        },
+        {
+          "title": "Actions > .rightclick() - right click on a DOM element",
+          "state": "passed",
+          "duration": 308,
+          "error": null
+        },
+        {
+          "title": "Actions > .check() - check a checkbox or radio element",
+          "state": "passed",
+          "duration": 951,
+          "error": null
+        },
+        {
+          "title": "Actions > .uncheck() - uncheck a checkbox element",
+          "state": "passed",
+          "duration": 932,
+          "error": null
+        },
+        {
+          "title": "Actions > .select() - select an option in a <select> element",
+          "state": "passed",
+          "duration": 987,
+          "error": null
+        },
+        {
+          "title": "Actions > .scrollIntoView() - scroll an element into view",
+          "state": "passed",
+          "duration": 238,
+          "error": null
+        },
+        {
+          "title": "Actions > .trigger() - trigger an event on a DOM element",
+          "state": "passed",
+          "duration": 252,
+          "error": null
+        },
+        {
+          "title": "Actions > cy.scrollTo() - scroll the window or element to a position",
+          "state": "passed",
+          "duration": 2252,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\aliasing.cy.js",
+      "stats": {
+        "duration": 2888,
+        "endedAt": "2025-07-22T14:54:11.685Z",
+        "failures": 0,
+        "passes": 2,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:54:08.797Z",
+        "suites": 1,
+        "tests": 2
+      },
+      "tests": [
+        {
+          "title": "Aliasing > .as() - alias a DOM element for later use",
+          "state": "passed",
+          "duration": 465,
+          "error": null
+        },
+        {
+          "title": "Aliasing > .as() - alias a route for later use",
+          "state": "passed",
+          "duration": 1108,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\assertions.cy.js",
+      "stats": {
+        "duration": 4947,
+        "endedAt": "2025-07-22T14:54:17.867Z",
+        "failures": 0,
+        "passes": 9,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:54:12.920Z",
+        "suites": 3,
+        "tests": 9
+      },
+      "tests": [
+        {
+          "title": "Assertions > Implicit Assertions > .should() - make an assertion about the current subject",
+          "state": "passed",
+          "duration": 396,
+          "error": null
+        },
+        {
+          "title": "Assertions > Implicit Assertions > .and() - chain multiple assertions together",
+          "state": "passed",
+          "duration": 278,
+          "error": null
+        },
+        {
+          "title": "Assertions > Explicit Assertions > expect - make an assertion about a specified subject",
+          "state": "passed",
+          "duration": 181,
+          "error": null
+        },
+        {
+          "title": "Assertions > Explicit Assertions > pass your own callback function to should()",
+          "state": "passed",
+          "duration": 221,
+          "error": null
+        },
+        {
+          "title": "Assertions > Explicit Assertions > finds element by class name regex",
+          "state": "passed",
+          "duration": 192,
+          "error": null
+        },
+        {
+          "title": "Assertions > Explicit Assertions > can throw any error",
+          "state": "passed",
+          "duration": 180,
+          "error": null
+        },
+        {
+          "title": "Assertions > Explicit Assertions > matches unknown text between two elements",
+          "state": "passed",
+          "duration": 174,
+          "error": null
+        },
+        {
+          "title": "Assertions > Explicit Assertions > assert - assert shape of an object",
+          "state": "passed",
+          "duration": 182,
+          "error": null
+        },
+        {
+          "title": "Assertions > Explicit Assertions > retries the should callback until assertions pass",
+          "state": "passed",
+          "duration": 1719,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\connectors.cy.js",
+      "stats": {
+        "duration": 3056,
+        "endedAt": "2025-07-22T14:54:22.136Z",
+        "failures": 0,
+        "passes": 8,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:54:19.080Z",
+        "suites": 2,
+        "tests": 8
+      },
+      "tests": [
+        {
+          "title": "Connectors > .each() - iterate over an array of elements",
+          "state": "passed",
+          "duration": 360,
+          "error": null
+        },
+        {
+          "title": "Connectors > .its() - get properties on the current subject",
+          "state": "passed",
+          "duration": 193,
+          "error": null
+        },
+        {
+          "title": "Connectors > .invoke() - invoke a function on the current subject",
+          "state": "passed",
+          "duration": 200,
+          "error": null
+        },
+        {
+          "title": "Connectors > .spread() - spread an array as individual args to callback function",
+          "state": "passed",
+          "duration": 209,
+          "error": null
+        },
+        {
+          "title": "Connectors > .then() > invokes a callback function with the current subject",
+          "state": "passed",
+          "duration": 186,
+          "error": null
+        },
+        {
+          "title": "Connectors > .then() > yields the returned value to the next command",
+          "state": "passed",
+          "duration": 182,
+          "error": null
+        },
+        {
+          "title": "Connectors > .then() > yields the original subject without return",
+          "state": "passed",
+          "duration": 186,
+          "error": null
+        },
+        {
+          "title": "Connectors > .then() > yields the value yielded by the last Cypress command inside",
+          "state": "passed",
+          "duration": 196,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\cookies.cy.js",
+      "stats": {
+        "duration": 3304,
+        "endedAt": "2025-07-22T14:54:26.757Z",
+        "failures": 0,
+        "passes": 7,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:54:23.453Z",
+        "suites": 1,
+        "tests": 7
+      },
+      "tests": [
+        {
+          "title": "Cookies > cy.getCookie() - get a browser cookie",
+          "state": "passed",
+          "duration": 446,
+          "error": null
+        },
+        {
+          "title": "Cookies > cy.getCookies() - get browser cookies for the current domain",
+          "state": "passed",
+          "duration": 275,
+          "error": null
+        },
+        {
+          "title": "Cookies > cy.getAllCookies() - get all browser cookies",
+          "state": "passed",
+          "duration": 206,
+          "error": null
+        },
+        {
+          "title": "Cookies > cy.setCookie() - set a browser cookie",
+          "state": "passed",
+          "duration": 210,
+          "error": null
+        },
+        {
+          "title": "Cookies > cy.clearCookie() - clear a browser cookie",
+          "state": "passed",
+          "duration": 277,
+          "error": null
+        },
+        {
+          "title": "Cookies > cy.clearCookies() - clear browser cookies for the current domain",
+          "state": "passed",
+          "duration": 265,
+          "error": null
+        },
+        {
+          "title": "Cookies > cy.clearAllCookies() - clear all browser cookies",
+          "state": "passed",
+          "duration": 213,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\cypress_api.cy.js",
+      "stats": {
+        "duration": 3301,
+        "endedAt": "2025-07-22T14:54:31.316Z",
+        "failures": 0,
+        "passes": 10,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:54:28.015Z",
+        "suites": 11,
+        "tests": 10
+      },
+      "tests": [
+        {
+          "title": "Cypress APIs > Cypress.Commands > .add() - create a custom command",
+          "state": "passed",
+          "duration": 333,
+          "error": null
+        },
+        {
+          "title": "Cypress APIs > Cypress.Cookies > .debug() - enable or disable debugging",
+          "state": "passed",
+          "duration": 202,
+          "error": null
+        },
+        {
+          "title": "Cypress APIs > Cypress.arch > Get CPU architecture name of underlying OS",
+          "state": "passed",
+          "duration": 174,
+          "error": null
+        },
+        {
+          "title": "Cypress APIs > Cypress.config() > Get and set configuration options",
+          "state": "passed",
+          "duration": 188,
+          "error": null
+        },
+        {
+          "title": "Cypress APIs > Cypress.dom > .isHidden() - determine if a DOM element is hidden",
+          "state": "passed",
+          "duration": 173,
+          "error": null
+        },
+        {
+          "title": "Cypress APIs > Cypress.env() > Get environment variables",
+          "state": "passed",
+          "duration": 186,
+          "error": null
+        },
+        {
+          "title": "Cypress APIs > Cypress.log > Control what is printed to the Command Log",
+          "state": "passed",
+          "duration": 166,
+          "error": null
+        },
+        {
+          "title": "Cypress APIs > Cypress.platform > Get underlying OS name",
+          "state": "passed",
+          "duration": 183,
+          "error": null
+        },
+        {
+          "title": "Cypress APIs > Cypress.version > Get current version of Cypress being run",
+          "state": "passed",
+          "duration": 179,
+          "error": null
+        },
+        {
+          "title": "Cypress APIs > Cypress.spec > Get current spec information",
+          "state": "passed",
+          "duration": 185,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\files.cy.js",
+      "stats": {
+        "duration": 2463,
+        "endedAt": "2025-07-22T14:54:35.066Z",
+        "failures": 0,
+        "passes": 4,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:54:32.603Z",
+        "suites": 1,
+        "tests": 4
+      },
+      "tests": [
+        {
+          "title": "Files > cy.fixture() - load a fixture",
+          "state": "passed",
+          "duration": 452,
+          "error": null
+        },
+        {
+          "title": "Files > cy.fixture() or require - load a fixture",
+          "state": "passed",
+          "duration": 177,
+          "error": null
+        },
+        {
+          "title": "Files > cy.readFile() - read file contents",
+          "state": "passed",
+          "duration": 192,
+          "error": null
+        },
+        {
+          "title": "Files > cy.writeFile() - write to a file",
+          "state": "passed",
+          "duration": 356,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\location.cy.js",
+      "stats": {
+        "duration": 2020,
+        "endedAt": "2025-07-22T14:54:38.313Z",
+        "failures": 0,
+        "passes": 3,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:54:36.293Z",
+        "suites": 1,
+        "tests": 3
+      },
+      "tests": [
+        {
+          "title": "Location > cy.hash() - get the current URL hash",
+          "state": "passed",
+          "duration": 359,
+          "error": null
+        },
+        {
+          "title": "Location > cy.location() - get window.location",
+          "state": "passed",
+          "duration": 183,
+          "error": null
+        },
+        {
+          "title": "Location > cy.url() - get the current URL",
+          "state": "passed",
+          "duration": 165,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\misc.cy.js",
+      "stats": {
+        "duration": 3780,
+        "endedAt": "2025-07-22T14:54:43.346Z",
+        "failures": 0,
+        "passes": 5,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:54:39.566Z",
+        "suites": 2,
+        "tests": 5
+      },
+      "tests": [
+        {
+          "title": "Misc > cy.exec() - execute a system command",
+          "state": "passed",
+          "duration": 876,
+          "error": null
+        },
+        {
+          "title": "Misc > cy.focused() - get the DOM element that has focus",
+          "state": "passed",
+          "duration": 359,
+          "error": null
+        },
+        {
+          "title": "Misc > cy.wrap() - wrap an object",
+          "state": "passed",
+          "duration": 169,
+          "error": null
+        },
+        {
+          "title": "Misc > Cypress.Screenshot > cy.screenshot() - take a screenshot",
+          "state": "passed",
+          "duration": 859,
+          "error": null
+        },
+        {
+          "title": "Misc > Cypress.Screenshot > Cypress.Screenshot.defaults() - change default config of screenshots",
+          "state": "passed",
+          "duration": 181,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\navigation.cy.js",
+      "stats": {
+        "duration": 3997,
+        "endedAt": "2025-07-22T14:54:48.645Z",
+        "failures": 0,
+        "passes": 3,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:54:44.648Z",
+        "suites": 1,
+        "tests": 3
+      },
+      "tests": [
+        {
+          "title": "Navigation > cy.go() - go back or forward in the browser's history",
+          "state": "passed",
+          "duration": 1328,
+          "error": null
+        },
+        {
+          "title": "Navigation > cy.reload() - reload the page",
+          "state": "passed",
+          "duration": 670,
+          "error": null
+        },
+        {
+          "title": "Navigation > cy.visit() - visit a remote url",
+          "state": "passed",
+          "duration": 562,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\network_requests.cy.js",
+      "stats": {
+        "duration": 4880,
+        "endedAt": "2025-07-22T14:54:54.773Z",
+        "failures": 0,
+        "passes": 6,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:54:49.893Z",
+        "suites": 1,
+        "tests": 6
+      },
+      "tests": [
+        {
+          "title": "Network Requests > cy.request() - make an XHR request",
+          "state": "passed",
+          "duration": 719,
+          "error": null
+        },
+        {
+          "title": "Network Requests > cy.request() - verify response using BDD syntax",
+          "state": "passed",
+          "duration": 405,
+          "error": null
+        },
+        {
+          "title": "Network Requests > cy.request() with query parameters",
+          "state": "passed",
+          "duration": 324,
+          "error": null
+        },
+        {
+          "title": "Network Requests > cy.request() - pass result to the second request",
+          "state": "passed",
+          "duration": 495,
+          "error": null
+        },
+        {
+          "title": "Network Requests > cy.request() - save response in the shared test context",
+          "state": "passed",
+          "duration": 548,
+          "error": null
+        },
+        {
+          "title": "Network Requests > cy.intercept() - route responses to matching requests",
+          "state": "passed",
+          "duration": 1030,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\querying.cy.js",
+      "stats": {
+        "duration": 3062,
+        "endedAt": "2025-07-22T14:54:59.078Z",
+        "failures": 0,
+        "passes": 5,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:54:56.016Z",
+        "suites": 1,
+        "tests": 5
+      },
+      "tests": [
+        {
+          "title": "Querying > cy.get() - query DOM elements",
+          "state": "passed",
+          "duration": 359,
+          "error": null
+        },
+        {
+          "title": "Querying > cy.contains() - query DOM elements with matching content",
+          "state": "passed",
+          "duration": 204,
+          "error": null
+        },
+        {
+          "title": "Querying > .within() - query DOM elements within a specific element",
+          "state": "passed",
+          "duration": 187,
+          "error": null
+        },
+        {
+          "title": "Querying > cy.root() - query the root DOM element",
+          "state": "passed",
+          "duration": 182,
+          "error": null
+        },
+        {
+          "title": "Querying > best practices - selecting elements",
+          "state": "passed",
+          "duration": 745,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\spies_stubs_clocks.cy.js",
+      "stats": {
+        "duration": 5053,
+        "endedAt": "2025-07-22T14:55:05.349Z",
+        "failures": 0,
+        "passes": 7,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:55:00.296Z",
+        "suites": 1,
+        "tests": 7
+      },
+      "tests": [
+        {
+          "title": "Spies, Stubs, and Clock > cy.spy() - wrap a method in a spy",
+          "state": "passed",
+          "duration": 324,
+          "error": null
+        },
+        {
+          "title": "Spies, Stubs, and Clock > cy.spy() retries until assertions pass",
+          "state": "passed",
+          "duration": 2552,
+          "error": null
+        },
+        {
+          "title": "Spies, Stubs, and Clock > cy.stub() - create a stub and/or replace a function with stub",
+          "state": "passed",
+          "duration": 194,
+          "error": null
+        },
+        {
+          "title": "Spies, Stubs, and Clock > cy.clock() - control time in the browser",
+          "state": "passed",
+          "duration": 267,
+          "error": null
+        },
+        {
+          "title": "Spies, Stubs, and Clock > cy.tick() - move time in the browser",
+          "state": "passed",
+          "duration": 345,
+          "error": null
+        },
+        {
+          "title": "Spies, Stubs, and Clock > cy.stub() matches depending on arguments",
+          "state": "passed",
+          "duration": 23,
+          "error": null
+        },
+        {
+          "title": "Spies, Stubs, and Clock > matches call arguments using Sinon matchers",
+          "state": "passed",
+          "duration": 30,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\storage.cy.js",
+      "stats": {
+        "duration": 2986,
+        "endedAt": "2025-07-22T14:55:09.580Z",
+        "failures": 0,
+        "passes": 5,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:55:06.594Z",
+        "suites": 1,
+        "tests": 5
+      },
+      "tests": [
+        {
+          "title": "Local Storage / Session Storage > cy.clearLocalStorage() - clear all data in localStorage for the current origin",
+          "state": "passed",
+          "duration": 623,
+          "error": null
+        },
+        {
+          "title": "Local Storage / Session Storage > cy.getAllLocalStorage() - get all data in localStorage for all origins",
+          "state": "passed",
+          "duration": 253,
+          "error": null
+        },
+        {
+          "title": "Local Storage / Session Storage > cy.clearAllLocalStorage() - clear all data in localStorage for all origins",
+          "state": "passed",
+          "duration": 254,
+          "error": null
+        },
+        {
+          "title": "Local Storage / Session Storage > cy.getAllSessionStorage() - get all data in sessionStorage for all origins",
+          "state": "passed",
+          "duration": 270,
+          "error": null
+        },
+        {
+          "title": "Local Storage / Session Storage > cy.clearAllSessionStorage() - clear all data in sessionStorage for all origins",
+          "state": "passed",
+          "duration": 249,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\traversal.cy.js",
+      "stats": {
+        "duration": 5665,
+        "endedAt": "2025-07-22T14:55:16.497Z",
+        "failures": 0,
+        "passes": 18,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:55:10.832Z",
+        "suites": 1,
+        "tests": 18
+      },
+      "tests": [
+        {
+          "title": "Traversal > .children() - get child DOM elements",
+          "state": "passed",
+          "duration": 418,
+          "error": null
+        },
+        {
+          "title": "Traversal > .closest() - get closest ancestor DOM element",
+          "state": "passed",
+          "duration": 202,
+          "error": null
+        },
+        {
+          "title": "Traversal > .eq() - get a DOM element at a specific index",
+          "state": "passed",
+          "duration": 211,
+          "error": null
+        },
+        {
+          "title": "Traversal > .filter() - get DOM elements that match the selector",
+          "state": "passed",
+          "duration": 210,
+          "error": null
+        },
+        {
+          "title": "Traversal > .find() - get descendant DOM elements of the selector",
+          "state": "passed",
+          "duration": 217,
+          "error": null
+        },
+        {
+          "title": "Traversal > .first() - get first DOM element",
+          "state": "passed",
+          "duration": 206,
+          "error": null
+        },
+        {
+          "title": "Traversal > .last() - get last DOM element",
+          "state": "passed",
+          "duration": 209,
+          "error": null
+        },
+        {
+          "title": "Traversal > .next() - get next sibling DOM element",
+          "state": "passed",
+          "duration": 246,
+          "error": null
+        },
+        {
+          "title": "Traversal > .nextAll() - get all next sibling DOM elements",
+          "state": "passed",
+          "duration": 254,
+          "error": null
+        },
+        {
+          "title": "Traversal > .nextUntil() - get next sibling DOM elements until next el",
+          "state": "passed",
+          "duration": 200,
+          "error": null
+        },
+        {
+          "title": "Traversal > .not() - remove DOM elements from set of DOM elements",
+          "state": "passed",
+          "duration": 261,
+          "error": null
+        },
+        {
+          "title": "Traversal > .parent() - get parent DOM element from DOM elements",
+          "state": "passed",
+          "duration": 250,
+          "error": null
+        },
+        {
+          "title": "Traversal > .parents() - get parent DOM elements from DOM elements",
+          "state": "passed",
+          "duration": 223,
+          "error": null
+        },
+        {
+          "title": "Traversal > .parentsUntil() - get parent DOM elements from DOM elements until el",
+          "state": "passed",
+          "duration": 230,
+          "error": null
+        },
+        {
+          "title": "Traversal > .prev() - get previous sibling DOM element",
+          "state": "passed",
+          "duration": 217,
+          "error": null
+        },
+        {
+          "title": "Traversal > .prevAll() - get all previous sibling DOM elements",
+          "state": "passed",
+          "duration": 225,
+          "error": null
+        },
+        {
+          "title": "Traversal > .prevUntil() - get all previous sibling DOM elements until el",
+          "state": "passed",
+          "duration": 221,
+          "error": null
+        },
+        {
+          "title": "Traversal > .siblings() - get all sibling DOM elements",
+          "state": "passed",
+          "duration": 199,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\utilities.cy.js",
+      "stats": {
+        "duration": 4432,
+        "endedAt": "2025-07-22T14:55:22.292Z",
+        "failures": 0,
+        "passes": 5,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:55:17.860Z",
+        "suites": 1,
+        "tests": 5
+      },
+      "tests": [
+        {
+          "title": "Utilities > Cypress._ - call a lodash method",
+          "state": "passed",
+          "duration": 735,
+          "error": null
+        },
+        {
+          "title": "Utilities > Cypress.$ - call a jQuery method",
+          "state": "passed",
+          "duration": 289,
+          "error": null
+        },
+        {
+          "title": "Utilities > Cypress.Blob - blob utilities and base64 string conversion",
+          "state": "passed",
+          "duration": 626,
+          "error": null
+        },
+        {
+          "title": "Utilities > Cypress.minimatch - test out glob patterns against strings",
+          "state": "passed",
+          "duration": 193,
+          "error": null
+        },
+        {
+          "title": "Utilities > Cypress.Promise - instantiate a bluebird promise",
+          "state": "passed",
+          "duration": 1202,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\viewport.cy.js",
+      "stats": {
+        "duration": 4626,
+        "endedAt": "2025-07-22T14:55:28.261Z",
+        "failures": 0,
+        "passes": 1,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:55:23.635Z",
+        "suites": 1,
+        "tests": 1
+      },
+      "tests": [
+        {
+          "title": "Viewport > cy.viewport() - set the viewport size and dimension",
+          "state": "passed",
+          "duration": 3046,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\waiting.cy.js",
+      "stats": {
+        "duration": 6919,
+        "endedAt": "2025-07-22T14:55:36.633Z",
+        "failures": 0,
+        "passes": 2,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:55:29.714Z",
+        "suites": 1,
+        "tests": 2
+      },
+      "tests": [
+        {
+          "title": "Waiting > cy.wait() - wait for a specific amount of time",
+          "state": "passed",
+          "duration": 4691,
+          "error": null
+        },
+        {
+          "title": "Waiting > cy.wait() - wait for a specific route",
+          "state": "passed",
+          "duration": 495,
+          "error": null
+        }
+      ]
+    },
+    {
+      "spec": "cypress\\e2e\\2-advanced-examples\\window.cy.js",
+      "stats": {
+        "duration": 2092,
+        "endedAt": "2025-07-22T14:55:40.367Z",
+        "failures": 0,
+        "passes": 3,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-07-22T14:55:38.275Z",
+        "suites": 1,
+        "tests": 3
+      },
+      "tests": [
+        {
+          "title": "Window > cy.window() - get the global window object",
+          "state": "passed",
+          "duration": 347,
+          "error": null
+        },
+        {
+          "title": "Window > cy.document() - get the document object",
+          "state": "passed",
+          "duration": 212,
+          "error": null
+        },
+        {
+          "title": "Window > cy.title() - get the title",
+          "state": "passed",
+          "duration": 186,
+          "error": null
+        }
+      ]
+    }
+  ]
+}
